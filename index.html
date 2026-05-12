@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NabatyRIC — Phytothérapie & Rhumatologie | نباتي RIC</title>
+<meta name="description" content="Base de données scientifique bilingue sur l'usage des plantes médicinales dans les maladies rhumatismales inflammatoires chroniques au Maroc.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --green-deep:#1a4a2e;--green-mid:#2d7a4a;--green-light:#4caf70;--green-pale:#e8f5ec;
+  --gold:#b8860b;--gold-light:#f5e6b0;--cream:#faf8f2;--text-dark:#1c1c1c;
+  --text-mid:#4a4a4a;--text-light:#777;--white:#fff;--border:#d4e8d8;
+  --radius:12px;--shadow:0 4px 24px rgba(26,74,46,0.10);
+}
+body{font-family:'Lato',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden}
+
+/* NAV */
+nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(26,74,46,0.07)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:38px;height:38px;background:linear-gradient(135deg,var(--green-mid),var(--green-light));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px}
+.logo-text{font-family:'Playfair Display',serif;font-size:22px;color:var(--green-deep);font-weight:700;letter-spacing:-0.5px}
+.logo-text span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-links a{font-size:14px;padding:8px 13px;border-radius:8px;text-decoration:none;color:var(--text-mid);font-weight:400;transition:all .2s;cursor:pointer}
+.nav-links a:hover,.nav-links a.active{background:var(--green-pale);color:var(--green-deep);font-weight:700}
+.lang-btn{background:var(--green-pale);border:1px solid var(--border);color:var(--green-deep);font-size:13px;font-weight:700;padding:6px 16px;border-radius:20px;cursor:pointer;transition:all .2s;font-family:'Lato',sans-serif}
+.lang-btn:hover{background:var(--green-deep);color:var(--white)}
+
+/* PAGES */
+.page{display:none;animation:fadeIn .35s ease}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--green-deep) 0%,#2d5a3e 50%,#1a3d28 100%);color:var(--white);padding:90px 24px 70px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-40px;right:-80px;width:320px;height:320px;background:rgba(76,175,112,0.12);border-radius:50%}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-40px;width:240px;height:240px;background:rgba(184,134,11,0.10);border-radius:50%}
+.hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:1}
+.hero-badge{display:inline-block;background:rgba(184,134,11,0.25);border:1px solid rgba(184,134,11,0.4);color:#f5e6b0;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 18px;border-radius:20px;margin-bottom:24px}
+.hero h1{font-family:'Playfair Display',serif;font-size:52px;font-weight:700;line-height:1.15;margin-bottom:12px;letter-spacing:-1px}
+.hero h1 span{color:#7de8a2}
+.hero-ar{font-family:'Amiri',serif;font-size:24px;color:rgba(255,255,255,0.7);margin-bottom:24px;direction:rtl}
+.hero p{font-size:17px;color:rgba(255,255,255,0.82);line-height:1.75;max-width:580px;margin:0 auto 36px}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:var(--white);border:none;padding:14px 32px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Lato',sans-serif;transition:all .2s;text-decoration:none;display:inline-block}
+.btn-primary:hover{background:#9a7009;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,0.5);padding:13px 28px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Lato',sans-serif;transition:all .2s}
+.btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,0.08)}
+
+/* STATS BAR */
+.stats-bar{background:var(--white);border-bottom:1px solid var(--border);padding:24px}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0;text-align:center}
+.stat-item{padding:8px 16px;border-right:1px solid var(--border)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--green-deep)}
+.stat-label{font-size:12px;color:var(--text-light);margin-top:2px}
+
+/* SECTIONS */
+.section{max-width:1100px;margin:0 auto;padding:56px 24px}
+.section-header{margin-bottom:36px}
+.section-header h2{font-family:'Playfair Display',serif;font-size:32px;color:var(--green-deep);font-weight:700;margin-bottom:8px}
+.section-header p{color:var(--text-mid);font-size:16px;line-height:1.65;margin-top:8px}
+.section-header .ar{font-family:'Amiri',serif;font-size:18px;color:var(--text-light);direction:rtl;display:block;margin-top:4px}
+.divider{width:48px;height:3px;background:linear-gradient(90deg,var(--green-mid),var(--gold));border-radius:2px;margin:12px 0 10px}
+
+/* FEATURE CARDS */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:24px}
+.feature-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:22px;transition:all .2s}
+.feature-card:hover{border-color:var(--green-light);box-shadow:var(--shadow)}
+.feature-icon{font-size:32px;margin-bottom:12px}
+.feature-title{font-weight:700;color:var(--green-deep);margin-bottom:6px;font-size:15px}
+.feature-text{font-size:13px;color:var(--text-mid);line-height:1.65}
+
+/* DISCLAIMER */
+.disclaimer{background:var(--green-pale);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:32px 24px;text-align:center}
+.disclaimer-inner{max-width:600px;margin:0 auto}
+.disclaimer-badge{font-size:13px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.disclaimer p{font-size:14px;color:var(--text-mid);line-height:1.7}
+.disclaimer .ar{font-family:'Amiri',serif;font-size:16px;color:var(--text-light);margin-top:8px;direction:rtl;display:block}
+
+/* PLANT CARDS */
+.search-bar{display:flex;gap:10px;margin-bottom:28px;flex-wrap:wrap}
+.search-input{flex:1;min-width:200px;padding:12px 18px;border:1.5px solid var(--border);border-radius:10px;font-size:15px;font-family:'Lato',sans-serif;background:var(--white);color:var(--text-dark);outline:none;transition:border .2s}
+.search-input:focus{border-color:var(--green-mid)}
+.filter-btn{padding:10px 18px;border:1.5px solid var(--border);border-radius:10px;background:var(--white);font-size:13px;font-weight:700;cursor:pointer;color:var(--text-mid);transition:all .2s;font-family:'Lato',sans-serif}
+.filter-btn.active,.filter-btn:hover{background:var(--green-pale);border-color:var(--green-mid);color:var(--green-deep)}
+.plants-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.plant-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all .25s;cursor:pointer}
+.plant-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--green-light)}
+.plant-card-img{height:110px;display:flex;align-items:center;justify-content:center;font-size:54px;position:relative}
+.plant-card-img.green{background:linear-gradient(135deg,#e8f5ec,#c8e6d0)}
+.plant-card-img.gold{background:linear-gradient(135deg,#faf3dc,#f0e0a0)}
+.plant-card-img.blue{background:linear-gradient(135deg,#e3eeff,#c0d4f8)}
+.plant-card-body{padding:16px}
+.plant-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--green-deep);margin-bottom:3px}
+.plant-name-ar{font-family:'Amiri',serif;font-size:15px;color:var(--text-light);direction:rtl;display:block;margin-bottom:8px}
+.plant-use{font-size:13px;color:var(--text-mid);line-height:1.55;margin-bottom:10px}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-right:4px;margin-bottom:4px}
+.tag-PR{background:#fde8e8;color:#a32d2d}
+.tag-SpA{background:#e3eeff;color:#185fa5}
+.tag-RPso{background:#faf3dc;color:#854f0b}
+.tag-safe{background:#e8f5ec;color:#1a4a2e}
+.tag-caution{background:#fff3e0;color:#e65100}
+.evidence-bar{display:flex;align-items:center;gap:6px;margin-top:8px;font-size:11px;color:var(--text-light)}
+.dots{display:flex;gap:3px}
+.dot{width:8px;height:8px;border-radius:50%;background:#ddd}
+.dot.on{background:var(--green-mid)}
+.no-results{grid-column:1/-1;text-align:center;padding:48px;color:var(--text-light);font-size:15px}
+
+/* PRO */
+.pro-highlight{background:var(--green-deep);color:var(--white);border-radius:var(--radius);padding:28px 32px;margin-bottom:36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.pro-highlight-label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:6px}
+.pro-highlight-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;margin-bottom:4px}
+.pro-highlight-sub{font-size:13px;color:rgba(255,255,255,0.7)}
+.pub-list{display:flex;flex-direction:column;gap:14px}
+.pub-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:22px 26px;display:flex;gap:22px;align-items:flex-start;transition:all .2s}
+.pub-card:hover{border-color:var(--green-light);box-shadow:0 2px 12px rgba(26,74,46,0.08)}
+.pub-num{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--border);min-width:32px;line-height:1;flex-shrink:0}
+.pub-title{font-size:15px;font-weight:700;color:var(--green-deep);margin-bottom:5px;line-height:1.4}
+.pub-authors{font-size:13px;color:var(--text-light);margin-bottom:10px}
+.pub-badges{display:flex;gap:6px;flex-wrap:wrap}
+.pub-badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px}
+.badge-journal{background:var(--green-pale);color:var(--green-deep)}
+.badge-year{background:var(--gold-light);color:#7a5c00}
+.badge-open{background:#e8f0ff;color:#1a3a7a}
+.pro-protocols{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:24px}
+.proto-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:20px;transition:all .2s}
+.proto-card:hover{border-color:var(--green-light)}
+.proto-icon{font-size:26px;margin-bottom:10px}
+.proto-title{font-weight:700;font-size:14px;color:var(--green-deep);margin-bottom:6px}
+.proto-text{font-size:12px;color:var(--text-light);line-height:1.6}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:start}
+.about-text p{font-size:16px;color:var(--text-mid);line-height:1.8;margin-bottom:14px}
+.about-text p.ar{font-family:'Amiri',serif;font-size:18px;direction:rtl;color:var(--text-light);border-right:3px solid var(--green-light);padding-right:14px}
+.team-cards{display:flex;flex-direction:column;gap:14px}
+.team-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:22px;text-align:center}
+.team-avatar{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white);margin:0 auto 12px}
+.team-name{font-weight:700;font-size:15px;color:var(--green-deep)}
+.team-role{font-size:13px;color:var(--text-light);margin-top:3px}
+.team-role-ar{font-family:'Amiri',serif;font-size:13px;color:var(--text-light);direction:rtl;margin-top:2px}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.contact-form{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:28px}
+.contact-form h3{font-family:'Playfair Display',serif;font-size:18px;color:var(--green-deep);margin-bottom:20px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:13px;font-weight:700;color:var(--text-mid);margin-bottom:6px}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:'Lato',sans-serif;background:var(--cream);color:var(--text-dark);outline:none;transition:border .2s}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--green-mid)}
+.form-group textarea{height:110px;resize:vertical}
+.contact-info{display:flex;flex-direction:column;gap:14px}
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:18px;display:flex;gap:14px;align-items:flex-start}
+.info-icon{width:42px;height:42px;border-radius:10px;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.info-title{font-weight:700;font-size:14px;color:var(--green-deep);margin-bottom:3px}
+.info-val{font-size:13px;color:var(--text-mid)}
+.collab-box{background:var(--green-pale);border:1px solid var(--border);border-radius:var(--radius);padding:18px;font-size:13px;color:var(--text-mid);line-height:1.65}
+
+/* FOOTER */
+footer{background:var(--green-deep);color:rgba(255,255,255,0.65);text-align:center;padding:32px 24px;font-size:13px;margin-top:0}
+footer strong{color:var(--white)}
+footer .ar{font-family:'Amiri',serif;font-size:15px;direction:rtl;display:block;margin-top:8px;color:rgba(255,255,255,0.45)}
+footer .copy{margin-top:12px;font-size:11px;color:rgba(255,255,255,0.3)}
+
+@media(max-width:768px){
+  .stats-inner{grid-template-columns:1fr 1fr}
+  .stat-item:nth-child(2){border-right:none}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .hero h1{font-size:34px}
+  .nav-links a{font-size:12px;padding:6px 9px}
+  .pro-highlight{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#" onclick="showPage('home',null)">
+      <div class="logo-icon">🌿</div>
+      <div class="logo-text">Nabaty<span>RIC</span></div>
+    </a>
+    <div class="nav-links">
+      <a class="active" onclick="showPage('home',this)">Accueil</a>
+      <a onclick="showPage('plants',this)">Plantes</a>
+      <a onclick="showPage('pro',this)">Espace Pro</a>
+      <a onclick="showPage('about',this)">À propos</a>
+      <a onclick="showPage('contact',this)">Contact</a>
+    </div>
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn">عربي</button>
+  </div>
+</nav>
+
+<!-- ===== PAGE : ACCUEIL ===== -->
+<div class="page active" id="page-home">
+
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Phytothérapie &amp; Rhumatologie</div>
+      <h1>La plante au service<br>des <span>maladies rhumatismales</span></h1>
+      <div class="hero-ar">النباتات الطبية في خدمة أمراض المفاصل</div>
+      <p>Base de données scientifique bilingue sur l'usage des plantes médicinales dans la polyarthrite rhumatoïde, la spondyloarthrite et le rhumatisme psoriasique — fondée sur une étude multicentrique marocaine (N=978).</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="showPage('plants',document.querySelectorAll('.nav-links a')[1])">Explorer les plantes</button>
+        <button class="btn-outline" onclick="showPage('pro',document.querySelectorAll('.nav-links a')[2])">Espace professionnel</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item"><div class="stat-num">50</div><div class="stat-label">Espèces référencées</div></div>
+      <div class="stat-item"><div class="stat-num">978</div><div class="stat-label">Patients inclus</div></div>
+      <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">Centres CHU</div></div>
+      <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">Pathologies couvertes</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <h2>Pourquoi NabatyRIC ?</h2>
+      <div class="divider"></div>
+      <span class="ar">لماذا نباتي RIC ؟</span>
+      <p>Un espace dédié aux patients souffrant de maladies rhumatismales inflammatoires chroniques et à leurs soignants, pour accéder à une information rigoureuse sur les plantes utilisées au Maroc.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔬</div>
+        <div class="feature-title">Base scientifique</div>
+        <div class="feature-text">Chaque fiche repose sur des données issues d'une étude multicentrique marocaine (N=978) et de la littérature internationale.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚠️</div>
+        <div class="feature-title">Alertes interactions</div>
+        <div class="feature-text">Signalement des interactions avec les traitements de fond (MTX, biothérapies) et des contre-indications documentées.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌍</div>
+        <div class="feature-title">Contexte marocain</div>
+        <div class="feature-text">Noms en Darija, Amazigh et latin. Données de prévalence spécifiques au Maroc, issues de 4 centres universitaires.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">👨‍⚕️</div>
+        <div class="feature-title">Espace pro dédié</div>
+        <div class="feature-text">Publications, protocoles et ressources pour les rhumatologues et professionnels de santé.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    <div class="disclaimer-inner">
+      <div class="disclaimer-badge">⚕️ Avertissement médical</div>
+      <p>Les informations de ce site sont fournies à titre informatif et ne remplacent pas l'avis d'un professionnel de santé. Consultez toujours votre rhumatologue avant d'utiliser une plante médicinale.</p>
+      <span class="ar">المعلومات الواردة في هذا الموقع للأغراض التثقيفية فقط ولا تغني عن استشارة الطبيب المختص</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE : PLANTES ===== -->
+<div class="page" id="page-plants">
+  <div class="section">
+    <div class="section-header">
+      <h2>Base de données des plantes</h2>
+      <span class="ar">قاعدة بيانات النباتات الطبية</span>
+      <div class="divider"></div>
+      <p>50 espèces référencées, utilisées par les patients RIC marocains. Niveau de preuve et interactions médicamenteuses indiqués pour chaque plante.</p>
+    </div>
+    <div class="search-bar">
+      <input class="search-input" placeholder="🔍  Rechercher une plante... / ابحث عن نبتة..." id="plantSearch" oninput="filterPlants()">
+      <button class="filter-btn active" onclick="filterByTag('all',this)">Toutes</button>
+      <button class="filter-btn" onclick="filterByTag('PR',this)">PR</button>
+      <button class="filter-btn" onclick="filterByTag('SpA',this)">SpA</button>
+      <button class="filter-btn" onclick="filterByTag('RPso',this)">RPso</button>
+    </div>
+    <div class="plants-grid" id="plantsGrid"></div>
+  </div>
+</div>
+
+<!-- ===== PAGE : ESPACE PRO ===== -->
+<div class="page" id="page-pro">
+  <div class="section">
+    <div class="section-header">
+      <h2>Espace Professionnel</h2>
+      <span class="ar">الفضاء المهني</span>
+      <div class="divider"></div>
+      <p>Publications scientifiques, protocoles de recherche et ressources destinées aux rhumatologues et chercheurs.</p>
+    </div>
+
+    <div class="pro-highlight">
+      <div>
+        <div class="pro-highlight-label">Étude phare</div>
+        <div class="pro-highlight-title">Phytothérapie dans les RIC au Maroc — étude multicentrique</div>
+        <div class="pro-highlight-sub">4 centres CHU · N=978 patients · PR, SpA, RPso · 50 espèces</div>
+      </div>
+      <button class="btn-primary">Accéder à l'article</button>
+    </div>
+
+    <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:var(--green-deep);margin-bottom:16px">Publications &amp; communications</h3>
+    <div class="pub-list">
+      <div class="pub-card">
+        <div class="pub-num">01</div>
+        <div>
+          <div class="pub-title">Herbal medicine use among Moroccan patients with rheumatoid arthritis, spondyloarthritis and psoriatic arthritis: a multicenter cross-sectional study</div>
+          <div class="pub-authors">Bougrine S, Ezzaoui R, Belmlih A, Sihida I, Allali F, Tahiri L · 2024</div>
+          <div class="pub-badges">
+            <span class="pub-badge badge-journal">Rhumatologie</span>
+            <span class="pub-badge badge-year">2024</span>
+            <span class="pub-badge badge-open">Open Access</span>
+          </div>
+        </div>
+      </div>
+      <div class="pub-card">
+        <div class="pub-num">02</div>
+        <div>
+          <div class="pub-title">Phytothérapie et traitements de fond : analyse des interactions déclarées dans une cohorte RIC marocaine</div>
+          <div class="pub-authors">Bougrine S, Allali F · Communication congrès · Rabat 2024</div>
+          <div class="pub-badges">
+            <span class="pub-badge badge-journal">Congrès SMR</span>
+            <span class="pub-badge badge-year">2024</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:var(--green-deep);margin:36px 0 16px">Protocoles de recherche</h3>
+    <div class="pro-protocols">
+      <div class="proto-card">
+        <div class="proto-icon">🦠</div>
+        <div class="proto-title">Microbiote intestinal &amp; RIC</div>
+        <div class="proto-text">Score PREDIMED + calprotectine fécale dans les RIC. Protocole disponible sur demande.</div>
+      </div>
+      <div class="proto-card">
+        <div class="proto-icon">📊</div>
+        <div class="proto-title">ECOS SpA — Évaluation DCEM</div>
+        <div class="proto-text">Premier OSCE validé en spondyloarthrite pour étudiants en médecine. Protocole pédagogique.</div>
+      </div>
+      <div class="proto-card">
+        <div class="proto-icon">🎮</div>
+        <div class="proto-title">Serious Games en rhumatologie</div>
+        <div class="proto-text">Revue de littérature sur les jeux sérieux en éducation médicale rhumatologique.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE : À PROPOS ===== -->
+<div class="page" id="page-about">
+  <div class="section">
+    <div class="section-header">
+      <h2>À propos de NabatyRIC</h2>
+      <span class="ar">حول مشروع نباتي RIC</span>
+      <div class="divider"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>NabatyRIC est une initiative académique née au sein du <strong>Service de Rhumatologie B du CHU Ibn Sina – Hôpital El Ayachi de Rabat</strong>, sous la direction du Pr. Allali Fadoua.</p>
+        <p>Face à une prévalence élevée de l'automédication par plantes médicinales chez les patients RIC marocains — constatée dans une étude multicentrique sur 978 patients — ce projet vise à créer un pont entre savoir populaire et médecine fondée sur les preuves.</p>
+        <p class="ar">نباتي RIC مبادرة علمية تهدف إلى تقديم معلومات موثوقة حول استخدام النباتات الطبية في علاج الأمراض الروماتيزمية الالتهابية المزمنة في السياق المغربي</p>
+        <p>Le site s'adresse aussi bien aux <strong>patients</strong> qui souhaitent comprendre les plantes qu'ils consomment, qu'aux <strong>professionnels de santé</strong> qui cherchent des données sur la phytothérapie dans les RIC.</p>
+      </div>
+      <div class="team-cards">
+        <div class="team-card">
+          <div class="team-avatar" style="background:linear-gradient(135deg,var(--green-mid),var(--green-light))">SB</div>
+          <div class="team-name">Dr. Saad Bougrine</div>
+          <div class="team-role">Résident en Rhumatologie · Doctorant</div>
+          <div class="team-role-ar">طبيب مقيم في أمراض الروماتيزم</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar" style="background:linear-gradient(135deg,#b5d4f4,#378add)">FA</div>
+          <div class="team-name">Pr. Allali Fadoua</div>
+          <div class="team-role">Chef de Service · Directrice de recherche</div>
+          <div class="team-role-ar">رئيسة المصلحة · مستشفى ابن سينا الرباط</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE : CONTACT ===== -->
+<div class="page" id="page-contact">
+  <div class="section">
+    <div class="section-header">
+      <h2>Contact</h2>
+      <span class="ar">تواصل معنا</span>
+      <div class="divider"></div>
+      <p>Une question sur une plante ? Un professionnel souhaitant collaborer ? Contactez l'équipe NabatyRIC.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-form">
+        <h3>Envoyer un message</h3>
+        <div class="form-group"><label>Nom complet</label><input type="text" placeholder="Dr. / M. / Mme ..."></div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="votre@email.com"></div>
+        <div class="form-group">
+          <label>Vous êtes</label>
+          <select>
+            <option>Patient / proche</option>
+            <option>Médecin / rhumatologue</option>
+            <option>Chercheur</option>
+            <option>Autre professionnel de santé</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea placeholder="Votre message..."></textarea></div>
+        <button class="btn-primary" style="width:100%;text-align:center">Envoyer le message</button>
+      </div>
+      <div class="contact-info">
+        <div class="info-card">
+          <div class="info-icon">🏥</div>
+          <div><div class="info-title">Service de Rhumatologie B</div><div class="info-val">CHU Ibn Sina – Hôpital El Ayachi, Rabat, Maroc</div></div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">📧</div>
+          <div><div class="info-title">Email</div><div class="info-val">contact@nabatyric.ma</div></div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🌿</div>
+          <div><div class="info-title">Domaine</div><div class="info-val">NabatyRIC.ma · NabatyRIC.com</div></div>
+        </div>
+        <div class="collab-box">
+          <strong style="color:var(--green-deep)">🤝 Collaborations</strong><br>
+          Nous sommes ouverts aux partenariats académiques et institutionnels pour le développement de la base de données et des protocoles de recherche.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <strong>NabatyRIC</strong> · Phytothérapie &amp; Rhumatologie inflammatoire chronique · Maroc<br>
+  CHU Ibn Sina – Service de Rhumatologie B, Rabat
+  <span class="ar">نباتي RIC · الفيتوثيرابي والأمراض الروماتيزمية المزمنة · المغرب</span>
+  <div class="copy">Les informations de ce site sont à titre éducatif uniquement · للأغراض التثقيفية فقط</div>
+</footer>
+
+<script>
+// ===== PLANT DATA =====
+const PLANTS = [
+  {name:"Nigelle",nameAr:"الحبة السوداء",latin:"Nigella sativa",emoji:"🌸",color:"gold",use:"Anti-inflammatoire, immunomodulatrice. Très utilisée en PR et SpA. Potentiel effet sur NF-κB.",tags:["PR","SpA"],safety:"safe",evidence:4},
+  {name:"Romarin",nameAr:"إكليل الجبل",latin:"Rosmarinus officinalis",emoji:"🌿",color:"green",use:"Propriétés anti-inflammatoires et antioxydantes. Utilisée en décoction.",tags:["PR"],safety:"safe",evidence:3},
+  {name:"Curcuma",nameAr:"الكركم",latin:"Curcuma longa",emoji:"🟡",color:"gold",use:"Inhibition des cytokines pro-inflammatoires. Interaction potentielle avec anticoagulants.",tags:["PR","SpA","RPso"],safety:"caution",evidence:5},
+  {name:"Argan",nameAr:"أركان",latin:"Argania spinosa",emoji:"🥜",color:"gold",use:"Riche en vitamine E et acides gras insaturés. Propriétés antioxydantes documentées.",tags:["PR"],safety:"safe",evidence:3},
+  {name:"Thym",nameAr:"الزعتر",latin:"Thymus vulgaris",emoji:"🌱",color:"green",use:"Antiseptique et anti-inflammatoire. Usage interne et externe traditionnellement.",tags:["PR","SpA"],safety:"safe",evidence:2},
+  {name:"Henné",nameAr:"الحناء",latin:"Lawsonia inermis",emoji:"🍃",color:"green",use:"Usage topique anti-douleur articulaire. Attention aux formes allergiques cutanées.",tags:["PR","RPso"],safety:"caution",evidence:2},
+  {name:"Gingembre",nameAr:"الزنجبيل",latin:"Zingiber officinale",emoji:"🫚",color:"gold",use:"Inhibition des prostaglandines. Effets sur la douleur articulaire documentés in vivo.",tags:["PR","SpA"],safety:"caution",evidence:4},
+  {name:"Fenugrec",nameAr:"الحلبة",latin:"Trigonella foenum-graecum",emoji:"🌾",color:"green",use:"Usage traditionnel anti-inflammatoire. Précaution en association avec MTX.",tags:["PR"],safety:"caution",evidence:2},
+  {name:"Ortie",nameAr:"القراص",latin:"Urtica dioica",emoji:"🌿",color:"green",use:"Activité anti-inflammatoire sur COX-1/COX-2. Utilisée en infusion ou capsule.",tags:["PR","SpA"],safety:"safe",evidence:3},
+  {name:"Aloès",nameAr:"الصبار",latin:"Aloe vera",emoji:"🌵",color:"blue",use:"Application topique sur les lésions psoriasiques. Effet antiprurigineux.",tags:["RPso"],safety:"safe",evidence:3},
+  {name:"Lavande",nameAr:"الخزامى",latin:"Lavandula officinalis",emoji:"💜",color:"blue",use:"Propriétés analgésiques et sédatives. Usage en aromathérapie pour la douleur chronique.",tags:["PR","SpA"],safety:"safe",evidence:2},
+  {name:"Figuier de Barbarie",nameAr:"الهندية",latin:"Opuntia ficus-indica",emoji:"🌵",color:"green",use:"Riche en bétalaïnes antioxydantes. Usage traditionnel dans les douleurs articulaires.",tags:["PR"],safety:"safe",evidence:2},
+];
+
+let currentFilter = 'all';
+
+function renderPlants(list) {
+  const grid = document.getElementById('plantsGrid');
+  if (!list.length) {
+    grid.innerHTML = '<div class="no-results">Aucune plante trouvée · لم يتم العثور على نبتة</div>';
+    return;
+  }
+  grid.innerHTML = list.map(p => `
+    <div class="plant-card" data-tags="${p.tags.join(',')}">
+      <div class="plant-card-img ${p.color}">${p.emoji}</div>
+      <div class="plant-card-body">
+        <div class="plant-name">${p.name}</div>
+        <span class="plant-name-ar">${p.nameAr} &nbsp;·&nbsp; <em style="font-size:12px;color:var(--text-light)">${p.latin}</em></span>
+        <div class="plant-use">${p.use}</div>
+        <div>
+          ${p.tags.map(t => `<span class="tag tag-${t}">${t}</span>`).join('')}
+          <span class="tag ${p.safety === 'safe' ? 'tag-safe' : 'tag-caution'}">${p.safety === 'safe' ? '✓ Sûr' : '⚠ Précaution'}</span>
+        </div>
+        <div class="evidence-bar">
+          Niveau de preuve :
+          <div class="dots">${[1,2,3,4,5].map(n => `<div class="dot${n <= p.evidence ? ' on' : ''}"></div>`).join('')}</div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterPlants() {
+  const q = document.getElementById('plantSearch').value.toLowerCase();
+  let list = PLANTS.filter(p => currentFilter === 'all' || p.tags.includes(currentFilter));
+  if (q) list = list.filter(p =>
+    p.name.toLowerCase().includes(q) ||
+    p.nameAr.includes(q) ||
+    p.latin.toLowerCase().includes(q)
+  );
+  renderPlants(list);
+}
+
+function filterByTag(tag, btn) {
+  currentFilter = tag;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  filterPlants();
+}
+
+// ===== NAVIGATION =====
+function showPage(id, el) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  if (el) el.classList.add('active');
+  window.scrollTo(0, 0);
+  if (id === 'plants') renderPlants(PLANTS);
+}
+
+// ===== LANGUE =====
+let isAr = false;
+const LABELS = {
+  home:    {fr:'Accueil',     ar:'الرئيسية'},
+  plants:  {fr:'Plantes',     ar:'النباتات'},
+  pro:     {fr:'Espace Pro',  ar:'الفضاء المهني'},
+  about:   {fr:'À propos',    ar:'حول'},
+  contact: {fr:'Contact',     ar:'تواصل'},
+};
+
+function toggleLang() {
+  isAr = !isAr;
+  const links = document.querySelectorAll('.nav-links a');
+  const keys = ['home','plants','pro','about','contact'];
+  links.forEach((a, i) => { a.textContent = isAr ? LABELS[keys[i]].ar : LABELS[keys[i]].fr; });
+  document.getElementById('langBtn').textContent = isAr ? 'FR' : 'عربي';
+  document.documentElement.dir = isAr ? 'rtl' : 'ltr';
+  document.documentElement.lang = isAr ? 'ar' : 'fr';
+}
+</script>
+</body>
+</html>
