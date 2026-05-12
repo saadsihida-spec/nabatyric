@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nigelle (Nigella sativa) — NabatyRIC</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--green-deep:#1a4a2e;--green-mid:#2d7a4a;--green-light:#4caf70;--green-pale:#e8f5ec;--gold:#b8860b;--gold-light:#f5e6b0;--cream:#faf8f2;--text-dark:#1c1c1c;--text-mid:#4a4a4a;--text-light:#777;--white:#fff;--border:#d4e8d8;--radius:12px;--shadow:0 4px 24px rgba(26,74,46,0.10)}
+body{font-family:'Lato',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden}
+nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(26,74,46,0.07)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:38px;height:38px;background:linear-gradient(135deg,var(--green-mid),var(--green-light));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px}
+.logo-text{font-family:'Playfair Display',serif;font-size:22px;color:var(--green-deep);font-weight:700;letter-spacing:-0.5px}
+.logo-text span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-links a{font-size:14px;padding:8px 13px;border-radius:8px;text-decoration:none;color:var(--text-mid);font-weight:400;transition:all .2s}
+.nav-links a:hover,.nav-links a.active{background:var(--green-pale);color:var(--green-deep);font-weight:700}
+footer{background:var(--green-deep);color:rgba(255,255,255,0.65);text-align:center;padding:32px 24px;font-size:13px}
+footer strong{color:var(--white)}
+footer .copy{margin-top:10px;font-size:11px;color:rgba(255,255,255,0.3)}
+
+/* BREADCRUMB */
+.breadcrumb{max-width:1100px;margin:0 auto;padding:16px 24px;font-size:13px;color:var(--text-light)}
+.breadcrumb a{color:var(--green-mid);text-decoration:none}
+.breadcrumb a:hover{text-decoration:underline}
+
+/* PLANT HERO */
+.plant-hero{background:linear-gradient(135deg,#faf3dc,#f0e0a0);padding:52px 24px;border-bottom:1px solid var(--border)}
+.plant-hero-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:40px}
+.plant-emoji-big{font-size:100px;flex-shrink:0}
+.plant-hero-text{}
+.plant-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px}
+.tag-PR{background:#fde8e8;color:#a32d2d}
+.tag-SpA{background:#e3eeff;color:#185fa5}
+.tag-RPso{background:#faf3dc;color:#854f0b}
+.tag-safe{background:#e8f5ec;color:#1a4a2e}
+.tag-caution{background:#fff3e0;color:#e65100}
+.plant-hero h1{font-family:'Playfair Display',serif;font-size:48px;font-weight:700;color:var(--green-deep);line-height:1.1;margin-bottom:6px}
+.plant-latin-big{font-size:18px;font-style:italic;color:var(--text-light);margin-bottom:8px}
+.plant-ar-big{font-family:'Amiri',serif;font-size:28px;color:var(--text-mid);direction:rtl;display:block;margin-bottom:16px}
+.plant-tagline{font-size:17px;color:var(--text-mid);line-height:1.65;max-width:560px}
+
+/* EVIDENCE BADGE */
+.evidence-big{display:flex;align-items:center;gap:10px;margin-top:16px}
+.evidence-label{font-size:13px;font-weight:700;color:var(--text-mid)}
+.dots-big{display:flex;gap:4px}
+.dot-big{width:12px;height:12px;border-radius:50%;background:#ddd}
+.dot-big.on{background:var(--green-mid)}
+.evidence-note{font-size:12px;color:var(--text-light)}
+
+/* MAIN CONTENT */
+.content{max-width:1100px;margin:0 auto;padding:48px 24px;display:grid;grid-template-columns:2fr 1fr;gap:40px;align-items:start}
+
+/* VIDEO */
+.video-section{margin-bottom:40px}
+.video-section h2{font-family:'Playfair Display',serif;font-size:24px;color:var(--green-deep);margin-bottom:16px}
+.video-placeholder{background:var(--green-deep);border-radius:var(--radius);aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--white);position:relative;overflow:hidden;cursor:pointer}
+.video-placeholder::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(76,175,112,0.15),rgba(184,134,11,0.10))}
+.video-play{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.4);display:flex;align-items:center;justify-content:center;font-size:26px;position:relative;z-index:1;transition:all .2s}
+.video-placeholder:hover .video-play{background:rgba(255,255,255,0.25);transform:scale(1.08)}
+.video-title{font-family:'Playfair Display',serif;font-size:18px;position:relative;z-index:1}
+.video-sub{font-size:13px;color:rgba(255,255,255,0.6);position:relative;z-index:1}
+/* When you add a real video, replace the placeholder with: */
+/* <video controls width="100%" style="border-radius:12px"><source src="nigelle.mp4" type="video/mp4"></video> */
+
+/* INFO SECTIONS */
+.info-section{margin-bottom:36px}
+.info-section h2{font-family:'Playfair Display',serif;font-size:22px;color:var(--green-deep);margin-bottom:6px;padding-bottom:10px;border-bottom:2px solid var(--green-pale)}
+.info-section-ar{font-family:'Amiri',serif;font-size:17px;color:var(--text-light);direction:rtl;display:block;margin-bottom:14px}
+.info-section p{font-size:15px;color:var(--text-mid);line-height:1.8;margin-bottom:12px}
+.info-section p strong{color:var(--green-deep)}
+.info-section ul{margin-left:20px;margin-bottom:12px}
+.info-section ul li{font-size:15px;color:var(--text-mid);line-height:1.7;margin-bottom:6px}
+
+/* WARNING BOX */
+.warning-box{background:#fff8e6;border:1px solid #f0c040;border-left:4px solid var(--gold);border-radius:var(--radius);padding:18px 20px;margin:16px 0}
+.warning-box strong{color:#7a5c00;display:block;margin-bottom:6px;font-size:14px}
+.warning-box p{font-size:14px;color:#5a4400;line-height:1.65}
+
+/* SAFE BOX */
+.safe-box{background:#e8f5ec;border:1px solid #a0d8b0;border-left:4px solid var(--green-mid);border-radius:var(--radius);padding:18px 20px;margin:16px 0}
+.safe-box strong{color:var(--green-deep);display:block;margin-bottom:6px;font-size:14px}
+.safe-box p{font-size:14px;color:#1a4a2e;line-height:1.65}
+
+/* SIDEBAR */
+.sidebar{}
+.sidebar-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:20px}
+.sidebar-card h3{font-family:'Playfair Display',serif;font-size:17px;color:var(--green-deep);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.info-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0;font-size:14px}
+.info-row:last-child{border-bottom:none}
+.info-row-label{color:var(--text-light)}
+.info-row-val{font-weight:700;color:var(--text-dark)}
+
+/* REFERENCES */
+.references{margin-top:40px;padding-top:32px;border-top:2px solid var(--border)}
+.references h2{font-family:'Playfair Display',serif;font-size:20px;color:var(--green-deep);margin-bottom:20px}
+.ref-list{list-style:none}
+.ref-list li{font-size:13px;color:var(--text-mid);line-height:1.6;padding:10px 0;border-bottom:1px solid #f0f0f0;padding-left:20px;position:relative}
+.ref-list li::before{content:counter(ref);counter-increment:ref;position:absolute;left:0;font-weight:700;color:var(--green-mid);font-size:12px}
+.ref-list{counter-reset:ref}
+
+/* NAV BETWEEN PLANTS */
+.plant-nav{display:flex;justify-content:space-between;margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.plant-nav a{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--green-mid);font-weight:700;font-size:14px;padding:10px 16px;border:1px solid var(--border);border-radius:10px;transition:all .2s;background:var(--white)}
+.plant-nav a:hover{background:var(--green-pale);border-color:var(--green-mid)}
+
+@media(max-width:768px){
+  .plant-hero-inner{flex-direction:column;text-align:center}
+  .plant-hero h1{font-size:32px}
+  .content{grid-template-columns:1fr}
+  .nav-links a{font-size:12px;padding:6px 8px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <div class="logo-icon">🌿</div>
+      <div class="logo-text">Nabaty<span>RIC</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="plantes.html" class="active">Plantes</a>
+      <a href="pro.html">Espace Pro</a>
+      <a href="apropos.html">À propos</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">Accueil</a> › <a href="plantes.html">Plantes</a> › Nigelle
+</div>
+
+<!-- PLANT HERO -->
+<div class="plant-hero">
+  <div class="plant-hero-inner">
+    <div class="plant-emoji-big">🌸</div>
+    <div class="plant-hero-text">
+      <div class="plant-tags">
+        <span class="tag tag-PR">Polyarthrite rhumatoïde</span>
+        <span class="tag tag-SpA">Spondyloarthrite</span>
+        <span class="tag tag-safe">✓ Généralement sûr</span>
+      </div>
+      <h1>Nigelle</h1>
+      <div class="plant-latin-big">Nigella sativa L.</div>
+      <span class="plant-ar-big">الحبة السوداء · حبة البركة</span>
+      <p class="plant-tagline">L'une des plantes médicinales les plus étudiées au monde, utilisée depuis l'Antiquité pour ses propriétés anti-inflammatoires et immunomodulatrices.</p>
+      <div class="evidence-big">
+        <span class="evidence-label">Niveau de preuve scientifique :</span>
+        <div class="dots-big">
+          <div class="dot-big on"></div><div class="dot-big on"></div><div class="dot-big on"></div><div class="dot-big on"></div><div class="dot-big"></div>
+        </div>
+        <span class="evidence-note">4/5 — Bon niveau de preuve</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content">
+  <div>
+    <!-- VIDEO -->
+    <div class="video-section">
+      <h2>🎬 Présentation en vidéo</h2>
+      <!-- 
+        POUR AJOUTER VOTRE VIDÉO :
+        Remplacez le bloc ci-dessous par :
+        <video controls width="100%" style="border-radius:12px;display:block">
+          <source src="videos/nigelle.mp4" type="video/mp4">
+        </video>
+      -->
+      <div class="video-placeholder">
+        <div class="video-play">▶</div>
+        <div class="video-title">La Nigelle et les maladies rhumatismales</div>
+        <div class="video-sub">Vidéo explicative · 1 minute · Bientôt disponible</div>
+      </div>
+    </div>
+
+    <!-- CE QUE C'EST -->
+    <div class="info-section">
+      <h2>Qu'est-ce que la nigelle ?</h2>
+      <span class="info-section-ar">ما هي الحبة السوداء ؟</span>
+      <p>La nigelle (<em>Nigella sativa</em>), appelée aussi <strong>cumin noir</strong> ou <strong>habba sawda</strong> en arabe, est une plante herbacée annuelle de la famille des Renonculacées. Ses graines noires, petites et légèrement amères, sont utilisées depuis plus de 2 000 ans en médecine traditionnelle à travers le monde arabe, l'Asie du Sud et le bassin méditerranéen.</p>
+      <p>Au Maroc, elle est connue sous le nom de <strong>"حبة البركة"</strong> (la graine bénie) et fait partie des remèdes traditionnels les plus répandus, consommée en graines entières, en huile ou en infusion.</p>
+    </div>
+
+    <!-- COMMENT ÇA MARCHE -->
+    <div class="info-section">
+      <h2>Comment agit-elle sur l'inflammation ?</h2>
+      <span class="info-section-ar">كيف تعمل الحبة السوداء على الالتهاب ؟</span>
+      <p>Le principal composé actif de la nigelle est la <strong>thymoquinone (TQ)</strong>, qui agit sur plusieurs mécanismes de l'inflammation :</p>
+      <ul>
+        <li><strong>Inhibition de NF-κB</strong> — elle bloque une voie centrale de l'inflammation impliquée dans la polyarthrite rhumatoïde</li>
+        <li><strong>Réduction des cytokines pro-inflammatoires</strong> — notamment le TNF-α, l'IL-1β et l'IL-6, qui sont précisément les cibles des biothérapies modernes</li>
+        <li><strong>Effet antioxydant</strong> — elle combat le stress oxydatif qui aggrave les lésions articulaires</li>
+        <li><strong>Immunomodulation</strong> — elle régule la réponse immunitaire sans la supprimer complètement</li>
+      </ul>
+      <p>En termes simples : la nigelle agit un peu comme un anti-inflammatoire naturel, en calmant le système immunitaire hyperactif responsable des poussées rhumatismales.</p>
+    </div>
+
+    <!-- CE QUE DIT LA SCIENCE -->
+    <div class="info-section">
+      <h2>Ce que dit la recherche scientifique</h2>
+      <span class="info-section-ar">ماذا تقول الدراسات العلمية ؟</span>
+      <p>Plusieurs études cliniques ont évalué l'effet de la nigelle dans les maladies rhumatismales :</p>
+      <ul>
+        <li>Une étude randomisée contrôlée (2016) a montré une <strong>réduction significative de la douleur et du gonflement articulaire</strong> chez des patients atteints de polyarthrite rhumatoïde après 8 semaines de prise d'huile de nigelle.</li>
+        <li>Des méta-analyses récentes confirment ses effets anti-inflammatoires mesurables via des <strong>biomarqueurs sanguins</strong> (CRP, VS).</li>
+        <li>Les études sur la spondyloarthrite sont encore limitées, mais les données sur l'inflammation axiale sont prometteuses.</li>
+      </ul>
+      <div class="safe-box">
+        <strong>✓ Point positif</strong>
+        <p>La nigelle est l'une des rares plantes médicinales à avoir été étudiée dans des essais cliniques rigoureux chez des patients rhumatismaux. Son profil de sécurité est globalement bon aux doses habituelles.</p>
+      </div>
+    </div>
+
+    <!-- PRÉCAUTIONS -->
+    <div class="info-section">
+      <h2>Précautions et interactions</h2>
+      <span class="info-section-ar">الاحتياطات والتفاعلات الدوائية</span>
+      <p>Bien que la nigelle soit généralement bien tolérée, certaines précautions s'imposent si vous êtes traité pour une maladie rhumatismale :</p>
+      <div class="warning-box">
+        <strong>⚠️ Interactions médicamenteuses possibles</strong>
+        <p>La nigelle peut potentialiser l'effet des <strong>anticoagulants</strong> (warfarine, héparine) et des <strong>antidiabétiques</strong>. Si vous prenez ces médicaments, signalez la consommation de nigelle à votre médecin.</p>
+      </div>
+      <div class="warning-box">
+        <strong>⚠️ Grossesse et allaitement</strong>
+        <p>L'huile de nigelle à fortes doses est déconseillée pendant la grossesse car elle peut stimuler les contractions utérines. Évitez-la ou consultez votre médecin.</p>
+      </div>
+      <div class="safe-box">
+        <strong>✓ Compatible avec les traitements de fond habituels</strong>
+        <p>Aux doses alimentaires normales (1-2 cuillères à café de graines par jour), aucune interaction documentée avec le méthotrexate, l'hydroxychloroquine ou les biothérapies courantes n'a été rapportée. Informez néanmoins toujours votre rhumatologue.</p>
+      </div>
+    </div>
+
+    <!-- USAGE PRATIQUE -->
+    <div class="info-section">
+      <h2>Comment est-elle utilisée ?</h2>
+      <span class="info-section-ar">كيف تُستخدم الحبة السوداء ؟</span>
+      <ul>
+        <li><strong>Graines entières</strong> — 1 cuillère à café par jour, avalées avec de l'eau ou du miel</li>
+        <li><strong>Huile de nigelle</strong> — 1 cuillère à café, 2 fois par jour (avant les repas)</li>
+        <li><strong>Infusion</strong> — graines légèrement écrasées infusées 10 min dans de l'eau chaude</li>
+        <li><strong>Usage topique</strong> — l'huile peut être massée sur les articulations douloureuses</li>
+      </ul>
+      <p style="margin-top:12px;font-size:14px;color:var(--text-light);font-style:italic">Ces usages sont issus de pratiques traditionnelles et d'études préliminaires. Consultez votre médecin avant tout usage régulier.</p>
+    </div>
+
+    <!-- REFERENCES -->
+    <div class="references">
+      <h2>📚 Références scientifiques</h2>
+      <ul class="ref-list">
+        <li>Gheita TA, Kenawy SA. <em>Effectiveness of Nigella sativa oil in the management of rheumatoid arthritis patients: a placebo-controlled study.</em> Phytother Res. 2012;26(8):1246-8.</li>
+        <li>Hadi V, et al. <em>Effects of Nigella sativa oil on inflammatory markers and disease activity score in rheumatoid arthritis: a randomized controlled trial.</em> J Ethnopharmacol. 2016;178:23-29.</li>
+        <li>Ahmad A, et al. <em>A review on therapeutic potential of Nigella sativa: A miracle herb.</em> Asian Pac J Trop Biomed. 2013;3(5):337-352.</li>
+        <li>Tavakkoli A, et al. <em>Review on Clinical Trials of Black Seed (Nigella sativa) and Its Active Constituent, Thymoquinone.</em> J Pharmacopuncture. 2017;20(3):179-193.</li>
+        <li>Kooshki A, et al. <em>Effect of Nigella sativa oil on serum concentrations of C-reactive protein and inflammatory cytokines.</em> Med J Islam Repub Iran. 2016;30:311.</li>
+      </ul>
+    </div>
+
+    <!-- NAV BETWEEN PLANTS -->
+    <div class="plant-nav">
+      <a href="plantes.html">← Retour à toutes les plantes</a>
+      <a href="curcuma.html">Curcuma →</a>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-card">
+      <h3>🌿 Fiche rapide</h3>
+      <div class="info-row"><span class="info-row-label">Nom scientifique</span><span class="info-row-val">Nigella sativa</span></div>
+      <div class="info-row"><span class="info-row-label">Famille</span><span class="info-row-val">Renonculacées</span></div>
+      <div class="info-row"><span class="info-row-label">Nom en Darija</span><span class="info-row-val" style="font-family:'Amiri',serif;font-size:16px">حبة البركة</span></div>
+      <div class="info-row"><span class="info-row-label">Partie utilisée</span><span class="info-row-val">Graines, huile</span></div>
+      <div class="info-row"><span class="info-row-label">Voie d'administration</span><span class="info-row-val">Orale, topique</span></div>
+    </div>
+
+    <div class="sidebar-card">
+      <h3>📊 Profil d'utilisation (Maroc)</h3>
+      <div class="info-row"><span class="info-row-label">Fréquence d'usage PR</span><span class="info-row-val">Très fréquent</span></div>
+      <div class="info-row"><span class="info-row-label">Fréquence d'usage SpA</span><span class="info-row-val">Fréquent</span></div>
+      <div class="info-row"><span class="info-row-label">Automédication</span><span class="info-row-val">Oui (sans avis médical)</span></div>
+    </div>
+
+    <div class="sidebar-card" style="background:var(--green-pale);border-color:var(--green-light)">
+      <h3>💬 En résumé pour le patient</h3>
+      <p style="font-size:14px;color:var(--text-mid);line-height:1.7">La nigelle est l'une des plantes les mieux étudiées dans les maladies rhumatismales. Elle est généralement bien tolérée, mais <strong>informez toujours votre rhumatologue</strong> de sa consommation, surtout si vous prenez des anticoagulants.</p>
+      <span style="font-family:'Amiri',serif;font-size:15px;direction:rtl;display:block;margin-top:10px;color:var(--text-light)">الحبة السوداء آمنة بشكل عام، لكن أخبر طبيبك دائماً قبل استخدامها مع الأدوية</span>
+    </div>
+
+    <div class="sidebar-card" style="text-align:center;border-style:dashed">
+      <div style="font-size:28px;margin-bottom:8px">⚕️</div>
+      <p style="font-size:13px;color:var(--text-mid);line-height:1.6">Ces informations ne remplacent pas l'avis de votre médecin. Consultez toujours votre rhumatologue avant tout usage.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <strong>NabatyRIC</strong> · Phytothérapie &amp; Rhumatologie · Maroc
+  <div class="copy">Les informations de ce site sont à titre éducatif uniquement · للأغراض التثقيفية فقط</div>
+</footer>
+</body>
+</html>

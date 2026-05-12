@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NabatyRIC — Phytothérapie & Rhumatologie</title>
+<meta name="description" content="Comprendre les plantes médicinales utilisées dans les maladies rhumatismales. Information bilingue, scientifique et accessible.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --green-deep:#1a4a2e;--green-mid:#2d7a4a;--green-light:#4caf70;--green-pale:#e8f5ec;
+  --gold:#b8860b;--gold-light:#f5e6b0;--cream:#faf8f2;--text-dark:#1c1c1c;
+  --text-mid:#4a4a4a;--text-light:#777;--white:#fff;--border:#d4e8d8;
+  --radius:12px;--shadow:0 4px 24px rgba(26,74,46,0.10);
+}
+body{font-family:'Lato',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden}
+nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(26,74,46,0.07)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:38px;height:38px;background:linear-gradient(135deg,var(--green-mid),var(--green-light));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px}
+.logo-text{font-family:'Playfair Display',serif;font-size:22px;color:var(--green-deep);font-weight:700;letter-spacing:-0.5px}
+.logo-text span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-links a{font-size:14px;padding:8px 13px;border-radius:8px;text-decoration:none;color:var(--text-mid);font-weight:400;transition:all .2s}
+.nav-links a:hover,.nav-links a.active{background:var(--green-pale);color:var(--green-deep);font-weight:700}
+.lang-btn{background:var(--green-pale);border:1px solid var(--border);color:var(--green-deep);font-size:13px;font-weight:700;padding:6px 16px;border-radius:20px;cursor:pointer;transition:all .2s;font-family:'Lato',sans-serif}
+.lang-btn:hover{background:var(--green-deep);color:var(--white)}
+footer{background:var(--green-deep);color:rgba(255,255,255,0.65);text-align:center;padding:32px 24px;font-size:13px}
+footer strong{color:var(--white)}
+footer .ar{font-family:'Amiri',serif;font-size:15px;direction:rtl;display:block;margin-top:8px;color:rgba(255,255,255,0.45)}
+footer .copy{margin-top:12px;font-size:11px;color:rgba(255,255,255,0.3)}
+.btn-primary{background:var(--gold);color:var(--white);border:none;padding:14px 32px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Lato',sans-serif;transition:all .2s;text-decoration:none;display:inline-block}
+.btn-primary:hover{background:#9a7009;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,0.5);padding:13px 28px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Lato',sans-serif;transition:all .2s;text-decoration:none;display:inline-block}
+.btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,0.08)}
+.section{max-width:1100px;margin:0 auto;padding:56px 24px}
+.section-header h2{font-family:'Playfair Display',serif;font-size:32px;color:var(--green-deep);font-weight:700;margin-bottom:8px}
+.divider{width:48px;height:3px;background:linear-gradient(90deg,var(--green-mid),var(--gold));border-radius:2px;margin:12px 0 16px}
+.ar{font-family:'Amiri',serif;direction:rtl}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--green-deep) 0%,#2d5a3e 55%,#1a3d28 100%);color:var(--white);padding:100px 24px 80px;text-align:center;position:relative;overflow:hidden}
+.hero-circle1{position:absolute;top:-60px;right:-100px;width:400px;height:400px;background:rgba(76,175,112,0.10);border-radius:50%}
+.hero-circle2{position:absolute;bottom:-80px;left:-60px;width:300px;height:300px;background:rgba(184,134,11,0.09);border-radius:50%}
+.hero-circle3{position:absolute;top:40%;left:10%;width:160px;height:160px;background:rgba(255,255,255,0.04);border-radius:50%}
+.hero-inner{max-width:800px;margin:0 auto;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(184,134,11,0.22);border:1px solid rgba(184,134,11,0.4);color:#f5e6b0;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 20px;border-radius:20px;margin-bottom:28px}
+.hero h1{font-family:'Playfair Display',serif;font-size:56px;font-weight:700;line-height:1.12;margin-bottom:14px;letter-spacing:-1.5px}
+.hero h1 em{color:#7de8a2;font-style:normal}
+.hero-ar{font-family:'Amiri',serif;font-size:26px;color:rgba(255,255,255,0.65);margin-bottom:28px;direction:rtl;line-height:1.6}
+.hero-desc{font-size:18px;color:rgba(255,255,255,0.80);line-height:1.75;max-width:620px;margin:0 auto 40px}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* VALUE PROPS */
+.props-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:8px}
+.prop-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;transition:all .25s;text-align:center}
+.prop-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--green-light)}
+.prop-icon{font-size:40px;margin-bottom:16px}
+.prop-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--green-deep);margin-bottom:10px}
+.prop-text{font-size:14px;color:var(--text-mid);line-height:1.7}
+.prop-text-ar{font-family:'Amiri',serif;font-size:15px;color:var(--text-light);direction:rtl;display:block;margin-top:8px}
+
+/* FOR WHO */
+.forwho{background:var(--green-deep);padding:60px 24px}
+.forwho-inner{max-width:1100px;margin:0 auto}
+.forwho h2{font-family:'Playfair Display',serif;font-size:30px;color:var(--white);margin-bottom:6px}
+.forwho-sub{color:rgba(255,255,255,0.6);font-size:15px;margin-bottom:36px}
+.forwho-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.forwho-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius);padding:28px;transition:all .2s}
+.forwho-card:hover{background:rgba(255,255,255,0.11)}
+.forwho-icon{font-size:36px;margin-bottom:14px}
+.forwho-title{font-family:'Playfair Display',serif;font-size:20px;color:var(--white);margin-bottom:10px}
+.forwho-text{font-size:14px;color:rgba(255,255,255,0.70);line-height:1.7}
+.forwho-text-ar{font-family:'Amiri',serif;font-size:15px;color:rgba(255,255,255,0.45);direction:rtl;display:block;margin-top:8px}
+.forwho-link{display:inline-block;margin-top:16px;color:#7de8a2;font-size:14px;font-weight:700;text-decoration:none}
+.forwho-link:hover{color:var(--white)}
+
+/* HOW IT WORKS */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px;position:relative}
+.step{text-align:center;padding:20px 16px}
+.step-num{width:44px;height:44px;border-radius:50%;background:var(--green-pale);border:2px solid var(--green-light);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--green-deep);margin:0 auto 14px}
+.step-title{font-weight:700;font-size:15px;color:var(--green-deep);margin-bottom:6px}
+.step-text{font-size:13px;color:var(--text-mid);line-height:1.6}
+
+/* DISCLAIMER */
+.disclaimer{background:var(--gold-light);border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);padding:28px 24px;text-align:center}
+.disclaimer-inner{max-width:680px;margin:0 auto}
+.disclaimer-title{font-weight:700;color:var(--gold);font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.disclaimer p{font-size:14px;color:#5a4000;line-height:1.7}
+.disclaimer .ar{font-family:'Amiri',serif;font-size:16px;color:#7a5800;direction:rtl;display:block;margin-top:8px}
+
+@media(max-width:768px){
+  .hero h1{font-size:34px}
+  .props-grid{grid-template-columns:1fr}
+  .forwho-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .nav-links a{font-size:12px;padding:6px 8px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <div class="logo-icon">🌿</div>
+      <div class="logo-text">Nabaty<span>RIC</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Accueil</a>
+      <a href="plantes.html">Plantes</a>
+      <a href="pro.html">Espace Pro</a>
+      <a href="apropos.html">À propos</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <button class="lang-btn">عربي</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-circle1"></div>
+  <div class="hero-circle2"></div>
+  <div class="hero-circle3"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">🌿 Phytothérapie · Rhumatologie</div>
+    <h1>Les plantes médicinales<br>et vos <em>articulations</em></h1>
+    <div class="hero-ar">النباتات الطبية وأمراض المفاصل — معلومات علمية بلغتين</div>
+    <p class="hero-desc">Vous souffrez d'une maladie rhumatismale et vous utilisez des plantes ? Découvrez ce que la science dit, ce qui est sûr, ce qui est à éviter — en français et en arabe.</p>
+    <div class="hero-btns">
+      <a href="plantes.html" class="btn-primary">Explorer les plantes 🌱</a>
+      <a href="pro.html" class="btn-outline">Espace professionnel</a>
+    </div>
+  </div>
+</div>
+
+<!-- POURQUOI CE SITE -->
+<div class="section">
+  <div class="section-header">
+    <h2>Ce que NabatyRIC vous apporte</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="props-grid">
+    <div class="prop-card">
+      <div class="prop-icon">🔬</div>
+      <div class="prop-title">Information validée</div>
+      <div class="prop-text">Chaque plante est analysée à partir de données scientifiques publiées. Pas de folklore, pas de marketing — uniquement ce que la recherche confirme.</div>
+      <span class="prop-text-ar">معلومات مبنية على الأدلة العلمية المنشورة</span>
+    </div>
+    <div class="prop-card">
+      <div class="prop-icon">⚠️</div>
+      <div class="prop-title">Sécurité avant tout</div>
+      <div class="prop-text">Certaines plantes interagissent avec vos traitements de fond (méthotrexate, biothérapies). Nous signalons clairement les risques pour votre sécurité.</div>
+      <span class="prop-text-ar">تنبيهات واضحة حول التفاعلات مع الأدوية الروماتيزمية</span>
+    </div>
+    <div class="prop-card">
+      <div class="prop-icon">🇲🇦</div>
+      <div class="prop-title">Contexte marocain</div>
+      <div class="prop-text">Les plantes référencées sont celles réellement utilisées au Maroc. Noms en Darija, Amazigh et latin. Un outil pensé pour notre réalité locale.</div>
+      <span class="prop-text-ar">النباتات المستخدمة فعلاً في المغرب، بالأسماء الدارجة والأمازيغية</span>
+    </div>
+  </div>
+</div>
+
+<!-- POUR QUI -->
+<div class="forwho">
+  <div class="forwho-inner">
+    <h2>Ce site s'adresse à vous</h2>
+    <div class="forwho-sub">Que vous soyez patient ou professionnel de santé</div>
+    <div class="forwho-grid">
+      <div class="forwho-card">
+        <div class="forwho-icon">🧑‍🦽</div>
+        <div class="forwho-title">Vous êtes patient</div>
+        <div class="forwho-text">Vous souffrez de polyarthrite rhumatoïde, de spondyloarthrite ou de rhumatisme psoriasique et vous souhaitez comprendre les plantes que vous consommez — ou hésitez à consommer. Ce site vous donne une information claire, accessible, et sans jargon excessif.</div>
+        <span class="forwho-text-ar">إذا كنت مريضاً بأمراض الروماتيزم وتستخدم النباتات الطبية، هذا الموقع يقدم لك معلومات واضحة وآمنة</span>
+        <a href="plantes.html" class="forwho-link">Voir les fiches plantes →</a>
+      </div>
+      <div class="forwho-card">
+        <div class="forwho-icon">👨‍⚕️</div>
+        <div class="forwho-title">Vous êtes professionnel de santé</div>
+        <div class="forwho-text">Vos patients utilisent des plantes médicinales sans toujours vous le dire. Retrouvez dans l'espace pro les données de la littérature scientifique, les interactions médicamenteuses documentées, et les protocoles de recherche disponibles.</div>
+        <span class="forwho-text-ar">للأطباء والمختصين: بيانات علمية حول النباتات الطبية في الأمراض الروماتيزمية</span>
+        <a href="pro.html" class="forwho-link">Accéder à l'espace pro →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMMENT ÇA MARCHE -->
+<div class="section">
+  <div class="section-header">
+    <h2>Comment utiliser NabatyRIC</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-title">Cherchez votre plante</div>
+      <div class="step-text">Tapez le nom en français, en arabe ou en latin dans la barre de recherche.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-title">Regardez la vidéo</div>
+      <div class="step-text">Chaque fiche contient une courte vidéo explicative, claire et accessible.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-title">Lisez les infos</div>
+      <div class="step-text">Propriétés, niveau de preuve, interactions, précautions — tout est résumé simplement.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-title">Consultez votre médecin</div>
+      <div class="step-text">Partagez la fiche avec votre rhumatologue avant toute décision thérapeutique.</div>
+    </div>
+  </div>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <div class="disclaimer-inner">
+    <div class="disclaimer-title">⚕️ Information importante</div>
+    <p>Les informations de ce site sont à titre éducatif et ne remplacent en aucun cas l'avis de votre médecin ou rhumatologue. Consultez toujours un professionnel de santé avant d'utiliser une plante médicinale, surtout si vous êtes sous traitement.</p>
+    <span class="ar">المعلومات الواردة هنا للأغراض التثقيفية فقط ولا تغني عن استشارة الطبيب المختص، خاصة إذا كنت تتلقى علاجاً</span>
+  </div>
+</div>
+
+<footer>
+  <strong>NabatyRIC</strong> · Phytothérapie &amp; Rhumatologie inflammatoire chronique · Maroc
+  <span class="ar">نباتي RIC · النباتات الطبية والأمراض الروماتيزمية · المغرب</span>
+  <div class="copy">Les informations de ce site sont à titre éducatif uniquement · للأغراض التثقيفية فقط</div>
+</footer>
+</body>
+</html>
