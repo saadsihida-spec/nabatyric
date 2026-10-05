@@ -336,3 +336,88 @@ footer.foot{background:var(--green-dark);color:rgba(255,255,255,.75)}
 .mini .ar{font-family:var(--f-ar);color:var(--mid);font-size:16px}
 table.list td.ar,table.list td:last-child{white-space:nowrap}
 @media(max-width:600px){table.list td.lat,table.list th:nth-child(2){display:none}table.list td,table.list th{padding-left:8px;padding-right:8px}}
+
+/* =========== v2 : logos, volets grand public, monographie pro =========== */
+.sec-fig{display:flex;flex-direction:column;align-items:center;gap:6px;margin:0}
+.sec-fig figcaption{font-size:12.5px;font-weight:600;color:var(--mid)}
+.partners img.sec{height:96px}
+.affil img.sec{height:80px}
+
+/* Volets dépliables (grand public) */
+.volet{border:1px solid var(--line);border-inline-start:5px solid var(--green);border-radius:12px;margin-bottom:14px;background:#fff}
+.volet>summary{list-style:none;cursor:pointer;padding:18px 22px;font:700 20px var(--f-display);letter-spacing:-.01em;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.l-ar .volet>summary{font-family:var(--f-ar-display);letter-spacing:0}
+.volet>summary::-webkit-details-marker{display:none}
+.volet>summary::after{content:'';width:10px;height:10px;border-right:2.5px solid var(--green);border-bottom:2.5px solid var(--green);transform:rotate(45deg);flex-shrink:0;transition:transform .2s;margin-top:-4px}
+.volet[open]>summary::after{transform:rotate(225deg);margin-top:4px}
+.volet-body{padding:0 22px 22px}
+.volet-body p+p{margin-top:10px}
+.volet-body ul{padding-inline-start:20px;margin-top:6px}
+.volet-body li{margin:6px 0}
+.volet .refs li{font-size:13.5px!important}
+sup.r a{font-size:11.5px;font-weight:700;color:var(--green);text-decoration:none;padding:0 1px}
+
+/* Monographie : en-tête */
+.mono-head{background:var(--paper);padding:clamp(28px,4vw,44px) 0 clamp(32px,4vw,48px)}
+.mono-head h1{font-size:clamp(42px,6vw,68px);font-weight:800;line-height:1;margin-bottom:22px}
+.ident{display:grid;grid-template-columns:repeat(3,auto) 1fr;gap:14px 36px;margin-bottom:22px}
+.ident dt{font-size:12.5px;font-weight:700;color:var(--soft);margin-bottom:2px}
+.ident dd{font-size:16px}
+.ident .arn{font-family:var(--f-ar);font-size:17px}
+@media(max-width:900px){.ident{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.ident{grid-template-columns:1fr}}
+.caution{background:#fff;border:1px solid #F2C6CC;border-left:5px solid var(--red);border-radius:0 12px 12px 0;padding:14px 18px;font-size:15.5px;max-width:860px}
+.caution strong{color:var(--red-dark);margin-right:8px}
+
+/* Monographie : panneaux */
+.mono-main{min-width:0}
+.tools{display:flex;justify-content:flex-end;gap:8px;margin-bottom:14px}
+.tools button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 14px;font:600 13.5px var(--f-body);color:var(--green);cursor:pointer}
+.tools button:hover{border-color:var(--green)}
+.panel{border:1px solid var(--line);border-radius:14px;margin-bottom:18px;background:#fff;scroll-margin-top:calc(var(--nav-h) + 16px);overflow:hidden}
+.panel>summary{list-style:none;cursor:pointer;background:var(--paper);padding:14px 22px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid transparent}
+.panel[open]>summary{border-bottom-color:var(--line)}
+.panel>summary::-webkit-details-marker{display:none}
+.panel>summary h2{font-size:21px;margin:0;padding:0;border:0}
+.panel>summary::after{content:'';width:9px;height:9px;border-right:2.5px solid var(--soft);border-bottom:2.5px solid var(--soft);transform:rotate(45deg);transition:transform .2s;margin-top:-4px}
+.panel[open]>summary::after{transform:rotate(225deg);margin-top:4px}
+.panel-body{padding:22px 24px 24px;font-size:16.5px;line-height:1.7}
+.panel-body h3{font-size:17px;margin:20px 0 6px}
+.panel-body h3:first-child{margin-top:0}
+.panel-body p+p{margin-top:12px}
+.panel-body ul{padding-left:20px}
+.panel-body li{margin:7px 0}
+.pill{display:inline-block;font-size:12.5px;font-weight:700;padding:4px 11px;border-radius:999px;white-space:nowrap;letter-spacing:.01em}
+.pill.ok{background:var(--green);color:#fff}
+.pill.warn{background:#F2B33D;color:#3a2700}
+.pill.bad{background:var(--red);color:#fff}
+.safe-row{display:grid;grid-template-columns:130px 1fr;gap:16px;align-items:start;padding:12px 0;border-bottom:1px solid var(--line)}
+.safe-row:last-child{border:0}
+.safe-row .pill{justify-self:start;margin-top:3px}
+@media(max-width:520px){.safe-row{grid-template-columns:1fr;gap:6px}}
+.indication{padding:4px 0 22px;border-bottom:1px solid var(--line);margin-bottom:20px}
+.indication:last-child{border:0;margin:0;padding-bottom:0}
+.ind-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.ind-head h3{margin:0!important;font-size:19px}
+.study{border:1px solid var(--line);border-radius:10px;margin-top:10px;background:var(--paper)}
+.study>summary{list-style:none;cursor:pointer;padding:11px 16px;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline}
+.study>summary::-webkit-details-marker{display:none}
+.study>summary::before{content:'+';font-weight:800;color:var(--green);width:12px}
+.study[open]>summary::before{content:'−'}
+.st-t{font-weight:700}
+.st-m{font-size:14px;color:var(--soft)}
+.st-b{padding:0 16px 14px 42px;font-size:15.5px}
+.forms{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.forms div{border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column}
+.forms span{font-size:14.5px;color:var(--mid)}
+@media(max-width:600px){.forms{grid-template-columns:1fr}}
+.inter-card{border:1px solid var(--line);border-left:5px solid #F2B33D;border-radius:0 12px 12px 0;padding:16px 18px;margin-bottom:12px;scroll-margin-top:calc(var(--nav-h) + 80px)}
+.inter-card.hl,.inter-card:target{background:#FFF7DC;border-color:#E9C46A}
+.ic-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ic-head h3{margin:0!important;font-size:18px}
+.ic-sub{font-size:14px;color:var(--soft);margin-top:2px}
+.inter-card p+p{margin-top:6px}
+.panel .reco{border:1px solid var(--line);border-left:5px solid var(--line);border-radius:0 12px 12px 0;padding:14px 18px;margin:0 0 10px}
+.panel .reco p{font-size:15.5px}
+.panel .refs li{padding-left:34px}
+sup.r{unicode-bidi:isolate;direction:ltr}

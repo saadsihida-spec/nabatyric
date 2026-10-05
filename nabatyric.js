@@ -89,6 +89,18 @@
     });
   }
 
+
+  /* ---------- Panneaux : tout déplier / replier ---------- */
+  document.querySelectorAll('[data-panels]').forEach(function(b){
+    b.addEventListener('click',function(){var o=b.dataset.panels==='open';document.querySelectorAll('details.panel').forEach(function(d){d.open=o;});});
+  });
+  /* Ouvrir le panneau visé par un lien interne (sommaire, référence, interaction) */
+  var openTarget=function(){
+    if(!location.hash) return; var t=document.querySelector(location.hash); if(!t) return;
+    var d=t.closest('details'); while(d){d.open=true; d=d.parentElement.closest('details');}
+  };
+  window.addEventListener('hashchange',openTarget); openTarget();
+
   /* ---------- Monographie : surligner l'interaction demandée ---------- */
   var params=new URLSearchParams(location.search), med=params.get('med');
   var box=document.getElementById('found');
