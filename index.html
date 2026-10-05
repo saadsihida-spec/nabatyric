@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NabatyRIC — Phytothérapie & Rhumatologie | نباتي RIC</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@500;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--green-deep:#1a4a2e;--green-mid:#2d7a4a;--green-light:#4caf70;--green-pale:#e8f5ec;--gold:#b8860b;--gold-light:#f5e6b0;--cream:#faf8f2;--text-dark:#1c1c1c;--text-mid:#4a4a4a;--text-light:#777;--white:#fff;--border:#d4e8d8;--radius:12px;--shadow:0 4px 24px rgba(26,74,46,0.10)}
@@ -100,8 +100,8 @@ footer .copy{margin-top:10px;font-size:11px;color:rgba(255,255,255,0.3)}
   .nav-links{display:none}
 }
 </style>
-<link rel="stylesheet" href="assets/nabatyric.css">
-<meta name="theme-color" content="#1a4a2e">
+<link rel="stylesheet" href="nabatyric.css">
+<meta name="theme-color" content="#ffffff">
 </head>
 <body>
 
@@ -129,17 +129,29 @@ footer .copy{margin-top:10px;font-size:11px;color:rgba(255,255,255,0.3)}
 </nav>
 
 <!-- HERO -->
-<div class="hero">
+<header class="hero">
   <div class="hero-inner">
-    <div class="hero-badge">🌿 <span data-fr="Phytothérapie · Rhumatologie" data-ar="الطب النباتي · أمراض الروماتيزم">Phytothérapie · Rhumatologie</span></div>
-    <h1 data-fr="Les plantes médicinales<br>et vos <em>articulations</em>" data-ar="النباتات الطبية<br>و<em>مفاصلكم</em>">Les plantes médicinales<br>et vos <em>articulations</em></h1>
-    <p data-fr="Vous souffrez d'une maladie rhumatismale et vous utilisez des plantes ? Découvrez ce que la science dit, ce qui est sûr, ce qui est à éviter — en français et en arabe." data-ar="هل تعاني من مرض روماتيزمي وتستخدم النباتات الطبية؟ اكتشف ما تقوله العلوم، ما هو آمن وما يجب تجنبه — بالعربية والفرنسية.">Vous souffrez d'une maladie rhumatismale et vous utilisez des plantes ? Découvrez ce que la science dit, ce qui est sûr, ce qui est à éviter — en français et en arabe.</p>
-    <div class="hero-btns">
+    <div class="hero-text">
+      <h1 data-fr="Les plantes médicinales<br>et vos <em>articulations</em>" data-ar="النباتات الطبية<br>و<em>مفاصلكم</em>">Les plantes médicinales<br>et vos <em>articulations</em></h1>
+      <p data-fr="Vous souffrez d'une maladie rhumatismale et vous utilisez des plantes ? Découvrez ce que la science dit, ce qui est sûr, ce qui est à éviter — en français et en arabe." data-ar="هل تعاني من مرض روماتيزمي وتستخدم النباتات الطبية؟ اكتشف ما تقوله العلوم، ما هو آمن وما يجب تجنبه — بالعربية والفرنسية.">Vous souffrez d'une maladie rhumatismale et vous utilisez des plantes ? Découvrez ce que la science dit, ce qui est sûr, ce qui est à éviter — en français et en arabe.</p>
+      <div class="hero-btns">
       <a href="plantes.html" class="btn-primary" data-fr="Explorer les plantes 🌱" data-ar="استكشف النباتات 🌱">Explorer les plantes 🌱</a>
       <a href="pro.html" class="btn-outline" data-fr="Espace professionnel" data-ar="الفضاء المهني">Espace professionnel</a>
     </div>
+    </div>
+    <div class="zellige">
+      <span class="z z-star z-green"></span>
+      <a class="z z-plant" href="nigelle.html"><span class="z-emoji">🌸</span><span class="z-name" data-fr="Nigelle" data-ar="الحبة السوداء">Nigelle</span></a>
+      <span class="z z-star z-red"></span>
+      <a class="z z-plant" href="plantes.html"><span class="z-emoji">🫚</span><span class="z-name" data-fr="Gingembre" data-ar="الزنجبيل">Gingembre</span></a>
+      <span class="z z-center"></span>
+      <a class="z z-plant" href="plantes.html"><span class="z-emoji">🌿</span><span class="z-name" data-fr="Romarin" data-ar="إكليل الجبل">Romarin</span></a>
+      <span class="z z-star z-red"></span>
+      <a class="z z-plant" href="plantes.html"><span class="z-emoji">🟡</span><span class="z-name" data-fr="Curcuma" data-ar="الكركم">Curcuma</span></a>
+      <span class="z z-star z-green"></span>
+    </div>
   </div>
-</div>
+</header>
 
 <!-- CE QUE NABATYRIC APPORTE -->
 <div class="section">
@@ -261,6 +273,6 @@ function setLang(lang) {
 // Apply saved language on load
 setLang(currentLang);
 </script>
-<script src="assets/nabatyric.js"></script>
+<script src="nabatyric.js"></script>
 </body>
 </html>
