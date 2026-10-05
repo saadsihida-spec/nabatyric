@@ -1,278 +1,104 @@
 <!DOCTYPE html>
-<html lang="fr" dir="ltr" id="html-root">
+<html lang="fr" dir="ltr" class="l-fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NabatyRIC — Phytothérapie & Rhumatologie | نباتي RIC</title>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@500;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--green-deep:#1a4a2e;--green-mid:#2d7a4a;--green-light:#4caf70;--green-pale:#e8f5ec;--gold:#b8860b;--gold-light:#f5e6b0;--cream:#faf8f2;--text-dark:#1c1c1c;--text-mid:#4a4a4a;--text-light:#777;--white:#fff;--border:#d4e8d8;--radius:12px;--shadow:0 4px 24px rgba(26,74,46,0.10)}
-body{font-family:'Lato',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden}
-
-/* NAV */
-nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(26,74,46,0.07)}
-.nav-inner{max-width:1100px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
-.logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--green-mid),var(--green-light));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px}
-.logo-text{font-family:'Playfair Display',serif;font-size:20px;color:var(--green-deep);font-weight:700}
-.logo-text span{color:var(--gold)}
-.nav-links{display:flex;align-items:center;gap:2px;flex-wrap:wrap}
-.nav-links a{font-size:13px;padding:7px 11px;border-radius:8px;text-decoration:none;color:var(--text-mid);transition:all .2s}
-.nav-links a:hover,.nav-links a.active{background:var(--green-pale);color:var(--green-deep);font-weight:700}
-.lang-switcher{display:flex;align-items:center;background:#f0f0f0;border-radius:20px;padding:3px;gap:2px;flex-shrink:0}
-.lang-btn{padding:5px 14px;border-radius:16px;border:none;font-size:13px;font-weight:700;cursor:pointer;font-family:'Lato',sans-serif;background:transparent;color:#888;transition:all .2s}
-.lang-btn.active{background:var(--green-deep);color:var(--white)}
-
-/* HERO */
-.hero{background:linear-gradient(135deg,var(--green-deep) 0%,#2d5a3e 55%,#1a3d28 100%);color:var(--white);padding:90px 24px 70px;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-60px;right:-100px;width:400px;height:400px;background:rgba(76,175,112,0.10);border-radius:50%}
-.hero::after{content:'';position:absolute;bottom:-80px;left:-60px;width:300px;height:300px;background:rgba(184,134,11,0.09);border-radius:50%}
-.hero-inner{max-width:800px;margin:0 auto;position:relative;z-index:1}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(184,134,11,0.22);border:1px solid rgba(184,134,11,0.4);color:#f5e6b0;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 20px;border-radius:20px;margin-bottom:28px}
-.hero h1{font-family:'Playfair Display',serif;font-size:52px;font-weight:700;line-height:1.12;margin-bottom:16px;letter-spacing:-1px}
-.hero h1 em{color:#7de8a2;font-style:normal}
-.hero p{font-size:17px;color:rgba(255,255,255,0.80);line-height:1.75;max-width:620px;margin:0 auto 36px}
-.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btn-primary{background:var(--gold);color:var(--white);border:none;padding:14px 30px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Lato',sans-serif;transition:all .2s;text-decoration:none;display:inline-block}
-.btn-primary:hover{background:#9a7009;transform:translateY(-1px)}
-.btn-outline{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,0.5);padding:13px 26px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Lato',sans-serif;transition:all .2s;text-decoration:none;display:inline-block}
-.btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,0.08)}
-
-/* SECTIONS */
-.section{max-width:1100px;margin:0 auto;padding:56px 24px}
-.section-title{font-family:'Playfair Display',serif;font-size:30px;color:var(--green-deep);font-weight:700;margin-bottom:8px}
-.divider{width:48px;height:3px;background:linear-gradient(90deg,var(--green-mid),var(--gold));border-radius:2px;margin:10px 0 16px}
-.section-sub{font-size:15px;color:var(--text-mid);line-height:1.65;margin-bottom:28px}
-
-/* VALUE CARDS */
-.props-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.prop-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:28px 22px;transition:all .25s;text-align:center}
-.prop-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--green-light)}
-.prop-icon{font-size:40px;margin-bottom:14px}
-.prop-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--green-deep);margin-bottom:10px}
-.prop-text{font-size:14px;color:var(--text-mid);line-height:1.7}
-
-/* FOR WHO */
-.forwho{background:var(--green-deep);padding:60px 24px}
-.forwho-inner{max-width:1100px;margin:0 auto}
-.forwho-title{font-family:'Playfair Display',serif;font-size:30px;color:var(--white);margin-bottom:6px}
-.forwho-sub{color:rgba(255,255,255,0.55);font-size:15px;margin-bottom:32px}
-.forwho-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.forwho-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius);padding:28px;transition:all .2s}
-.forwho-card:hover{background:rgba(255,255,255,0.11)}
-.forwho-icon{font-size:38px;margin-bottom:14px}
-.forwho-ctitle{font-family:'Playfair Display',serif;font-size:20px;color:var(--white);margin-bottom:10px}
-.forwho-text{font-size:14px;color:rgba(255,255,255,0.70);line-height:1.75}
-.forwho-link{display:inline-block;margin-top:16px;color:#7de8a2;font-size:14px;font-weight:700;text-decoration:none}
-.forwho-link:hover{color:var(--white)}
-
-/* STEPS */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.step{text-align:center;padding:20px 12px}
-.step-num{width:44px;height:44px;border-radius:50%;background:var(--green-pale);border:2px solid var(--green-light);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--green-deep);margin:0 auto 14px}
-.step-title{font-weight:700;font-size:14px;color:var(--green-deep);margin-bottom:6px}
-.step-text{font-size:13px;color:var(--text-mid);line-height:1.65}
-
-/* DISCLAIMER */
-.disclaimer{background:var(--gold-light);border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);padding:28px 24px;text-align:center}
-.disclaimer-inner{max-width:680px;margin:0 auto}
-.disclaimer-badge{font-weight:700;color:var(--gold);font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
-.disclaimer p{font-size:14px;color:#5a4000;line-height:1.7}
-
-/* FOOTER */
-footer{background:var(--green-deep);color:rgba(255,255,255,0.65);text-align:center;padding:32px 24px;font-size:13px}
-footer strong{color:var(--white)}
-footer .copy{margin-top:10px;font-size:11px;color:rgba(255,255,255,0.3)}
-
-/* ARABIC MODE */
-[dir="rtl"] body{font-family:'Amiri',serif}
-[dir="rtl"] .hero h1{font-family:'Amiri',serif;font-size:48px}
-[dir="rtl"] .section-title,[dir="rtl"] .prop-title,[dir="rtl"] .forwho-ctitle,[dir="rtl"] .step-title{font-family:'Amiri',serif}
-[dir="rtl"] .logo-text{font-family:'Amiri',serif}
-[dir="rtl"] .nav-links a{font-family:'Amiri',serif;font-size:15px}
-
-@media(max-width:768px){
-  .hero h1{font-size:34px}
-  .props-grid{grid-template-columns:1fr}
-  .forwho-grid{grid-template-columns:1fr}
-  .steps{grid-template-columns:1fr 1fr}
-  .nav-links{display:none}
-}
-</style>
-<link rel="stylesheet" href="nabatyric.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nabaty Care · Plantes médicinales et rhumatologie</title>
+<meta name="description" content="Information fiable et bilingue sur les plantes médicinales utilisées par les personnes atteintes de maladies rhumatismales au Maroc.">
 <meta name="theme-color" content="#ffffff">
+<script>try{if(localStorage.getItem('nabaty-lang')==='ar'){var h=document.documentElement;h.className='l-ar';h.dir='rtl';h.lang='ar';}}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@500;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="nabatyric.css">
 </head>
 <body>
-
-<nav>
-  <div class="nav-inner">
-    <a class="logo" href="index.html">
-      <div class="logo-icon">🌿</div>
-      <div class="logo-text">Nabaty<span>RIC</span></div>
-    </a>
-    <div class="nav-links">
-      <a href="index.html" class="active" data-fr="Accueil" data-ar="الرئيسية">Accueil</a>
-      <a href="plantes.html" data-fr="Plantes" data-ar="النباتات">Plantes</a>
-      <a href="pro.html" data-fr="Espace Pro" data-ar="الفضاء المهني">Espace Pro</a>
-      <a href="apropos.html" data-fr="À propos" data-ar="حول">À propos</a>
-      <a href="contact.html" data-fr="Contact" data-ar="تواصل">Contact</a>
-    </div>
-    <div class="nav-right">
-      <div class="lang-switcher">
-      <button class="lang-btn active" onclick="setLang('fr')">FR</button>
-      <button class="lang-btn" onclick="setLang('ar')">AR</button>
-    </div>
-      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
+<nav class="top"><div class="nav-inner">
+  <a class="wordmark" href="index.html">Nabaty <span>Care</span></a>
+  <div class="nav-links">
+    <a href="index.html" class="active"><span data-l="fr">Accueil</span><span data-l="ar">الرئيسية</span></a>
+    <a href="grand-public.html"><span data-l="fr">Espace grand public</span><span data-l="ar">فضاء العموم</span></a>
+    <a href="pro.html"><span data-l="fr">Espace pro</span><span data-l="ar">الفضاء المهني</span></a>
+    <a href="apropos.html"><span data-l="fr">À propos</span><span data-l="ar">من نحن</span></a>
+    <a href="contact.html"><span data-l="fr">Contact</span><span data-l="ar">اتصل بنا</span></a>
   </div>
-</nav>
+  <div class="nav-right">
+    <div class="lang"><button type="button" data-lang="fr" class="on">FR</button><button type="button" data-lang="ar">AR</button></div>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
 
-<!-- HERO -->
 <header class="hero">
-  <div class="hero-inner">
-    <div class="hero-text">
-      <h1 data-fr="Les plantes médicinales<br>et vos <em>articulations</em>" data-ar="النباتات الطبية<br>و<em>مفاصلكم</em>">Les plantes médicinales<br>et vos <em>articulations</em></h1>
-      <p data-fr="Vous souffrez d'une maladie rhumatismale et vous utilisez des plantes ? Découvrez ce que la science dit, ce qui est sûr, ce qui est à éviter — en français et en arabe." data-ar="هل تعاني من مرض روماتيزمي وتستخدم النباتات الطبية؟ اكتشف ما تقوله العلوم، ما هو آمن وما يجب تجنبه — بالعربية والفرنسية.">Vous souffrez d'une maladie rhumatismale et vous utilisez des plantes ? Découvrez ce que la science dit, ce qui est sûr, ce qui est à éviter — en français et en arabe.</p>
-      <div class="hero-btns">
-      <a href="plantes.html" class="btn-primary" data-fr="Explorer les plantes 🌱" data-ar="استكشف النباتات 🌱">Explorer les plantes 🌱</a>
-      <a href="pro.html" class="btn-outline" data-fr="Espace professionnel" data-ar="الفضاء المهني">Espace professionnel</a>
+  <div class="hero-bg" role="img" aria-label="Épices et plantes séchées"></div>
+  <div class="wrap"><div class="hero-text">
+    <h1 data-l="fr">Plantes et rhumatismes : l'information fiable</h1><h1 data-l="ar">النباتات والروماتيزم: معلومات موثوقة</h1>
+    <p data-l="fr">Vous avez une maladie rhumatismale et vous utilisez des plantes ? Nabaty Care vous dit ce qui est prouvé, ce qui ne l'est pas, et ce qu'il faut éviter. En français et en arabe.</p><p data-l="ar">هل تعاني من مرض روماتيزمي وتستعمل النباتات؟ يخبرك Nabaty Care بما هو مُثبت علمياً، وما ليس كذلك، وما يجب تجنّبه. بالعربية والفرنسية.</p>
+    <div class="hero-btns">
+      <a class="btn btn-red" href="grand-public.html"><span data-l="fr">Espace grand public</span><span data-l="ar">فضاء العموم</span></a>
+      <a class="btn btn-line" href="pro.html"><span data-l="fr">Espace professionnel</span><span data-l="ar">الفضاء المهني</span></a>
     </div>
-    </div>
-    <div class="zellige">
-      <span class="z z-star z-green"></span>
-      <a class="z z-plant" href="nigelle.html"><span class="z-emoji">🌸</span><span class="z-name" data-fr="Nigelle" data-ar="الحبة السوداء">Nigelle</span></a>
-      <span class="z z-star z-red"></span>
-      <a class="z z-plant" href="plantes.html"><span class="z-emoji">🫚</span><span class="z-name" data-fr="Gingembre" data-ar="الزنجبيل">Gingembre</span></a>
-      <span class="z z-center"></span>
-      <a class="z z-plant" href="plantes.html"><span class="z-emoji">🌿</span><span class="z-name" data-fr="Romarin" data-ar="إكليل الجبل">Romarin</span></a>
-      <span class="z z-star z-red"></span>
-      <a class="z z-plant" href="plantes.html"><span class="z-emoji">🟡</span><span class="z-name" data-fr="Curcuma" data-ar="الكركم">Curcuma</span></a>
-      <span class="z z-star z-green"></span>
-    </div>
-  </div>
+  </div></div>
 </header>
+<div class="band"></div>
 
-<!-- CE QUE NABATYRIC APPORTE -->
-<div class="section">
-  <div class="section-title" data-fr="Ce que NabatyRIC vous apporte" data-ar="ما يقدمه لك نباتي RIC">Ce que NabatyRIC vous apporte</div>
-  <div class="divider"></div>
-  <div class="props-grid">
-    <div class="prop-card">
-      <div class="prop-icon">🔬</div>
-      <div class="prop-title" data-fr="Information validée" data-ar="معلومات موثوقة">Information validée</div>
-      <div class="prop-text" data-fr="Chaque plante est analysée à partir de données scientifiques publiées. Pas de folklore, pas de marketing — uniquement ce que la recherche confirme." data-ar="كل نبتة مُحللة بناءً على بيانات علمية منشورة. لا خرافات، لا تسويق — فقط ما يؤكده البحث العلمي.">Chaque plante est analysée à partir de données scientifiques publiées. Pas de folklore, pas de marketing — uniquement ce que la recherche confirme.</div>
-    </div>
-    <div class="prop-card">
-      <div class="prop-icon">⚠️</div>
-      <div class="prop-title" data-fr="Sécurité avant tout" data-ar="السلامة أولاً">Sécurité avant tout</div>
-      <div class="prop-text" data-fr="Certaines plantes interagissent avec vos traitements. Nous signalons clairement les risques pour votre sécurité." data-ar="بعض النباتات تتفاعل مع أدويتك. نحذر بوضوح من المخاطر لحماية سلامتك.">Certaines plantes interagissent avec vos traitements. Nous signalons clairement les risques pour votre sécurité.</div>
-    </div>
-    <div class="prop-card">
-      <div class="prop-icon">🇲🇦</div>
-      <div class="prop-title" data-fr="Contexte marocain" data-ar="السياق المغربي">Contexte marocain</div>
-      <div class="prop-text" data-fr="Les plantes référencées sont celles réellement utilisées au Maroc. Noms en Darija, Amazigh et latin." data-ar="النباتات المُدرجة هي المستخدمة فعلاً في المغرب. الأسماء بالدارجة والأمازيغية واللاتينية.">Les plantes référencées sont celles réellement utilisées au Maroc. Noms en Darija, Amazigh et latin.</div>
-    </div>
+<section class="section"><div class="wrap">
+  <h2 data-l="fr" class="title">Ce que Nabaty Care vous apporte</h2><h2 data-l="ar" class="title">ما يقدّمه لكم Nabaty Care</h2>
+  <div class="title-bar"></div>
+  <div class="cols3">
+    <div class="col"><div class="ico">🔬</div><h3 data-l="fr">Information vérifiée</h3><h3 data-l="ar">معلومات موثّقة</h3><p data-l="fr">Chaque fiche s'appuie sur des études publiées et cite ses sources.</p><p data-l="ar">كل بطاقة مبنية على دراسات منشورة وتذكر مصادرها.</p></div>
+    <div class="col"><div class="ico">⚠️</div><h3 data-l="fr">Sécurité d'abord</h3><h3 data-l="ar">السلامة أولاً</h3><p data-l="fr">Effets indésirables, interactions avec vos médicaments : les risques sont signalés clairement.</p><p data-l="ar">الآثار الجانبية والتداخلات مع أدويتكم: المخاطر مذكورة بوضوح.</p></div>
+    <div class="col"><div class="ico">🇲🇦</div><h3 data-l="fr">Contexte marocain</h3><h3 data-l="ar">السياق المغربي</h3><p data-l="fr">Les plantes réellement utilisées au Maroc, avec leurs noms en arabe et en darija.</p><p data-l="ar">النباتات المستعملة فعلاً في المغرب، بأسمائها بالعربية والدارجة.</p></div>
   </div>
-</div>
+</div></section>
 
-<!-- POUR QUI -->
-<div class="forwho">
-  <div class="forwho-inner">
-    <div class="forwho-title" data-fr="Ce site s'adresse à vous" data-ar="هذا الموقع مُوجَّه إليك">Ce site s'adresse à vous</div>
-    <div class="forwho-sub" data-fr="Que vous soyez patient ou professionnel de santé" data-ar="سواء كنت مريضاً أو متخصصاً في الصحة">Que vous soyez patient ou professionnel de santé</div>
-    <div class="forwho-grid">
-      <div class="forwho-card">
-        <div class="forwho-icon">🧑‍🦽</div>
-        <div class="forwho-ctitle" data-fr="Vous êtes patient" data-ar="أنت مريض">Vous êtes patient</div>
-        <div class="forwho-text" data-fr="Vous souffrez de polyarthrite rhumatoïde, de spondyloarthrite ou de rhumatisme psoriasique et souhaitez comprendre les plantes que vous consommez. Ce site vous donne une information claire, accessible, sans jargon excessif." data-ar="تعاني من التهاب المفاصل الروماتويدي أو التهاب الفقار أو الروماتيزم الصدفي وتريد فهم النباتات التي تستخدمها. هذا الموقع يقدم لك معلومات واضحة وسهلة الفهم.">Vous souffrez de polyarthrite rhumatoïde, de spondyloarthrite ou de rhumatisme psoriasique et souhaitez comprendre les plantes que vous consommez. Ce site vous donne une information claire, accessible, sans jargon excessif.</div>
-        <a href="plantes.html" class="forwho-link" data-fr="Voir les fiches plantes →" data-ar="عرض بطاقات النباتات ←">Voir les fiches plantes →</a>
-      </div>
-      <div class="forwho-card">
-        <div class="forwho-icon">👨‍⚕️</div>
-        <div class="forwho-ctitle" data-fr="Vous êtes professionnel de santé" data-ar="أنت متخصص في الصحة">Vous êtes professionnel de santé</div>
-        <div class="forwho-text" data-fr="Vos patients utilisent des plantes médicinales sans toujours vous le dire. Retrouvez dans l'espace pro les données de la littérature scientifique disponibles sur la phytothérapie dans les RIC." data-ar="مرضاك يستخدمون النباتات الطبية دون إخبارك دائماً. اعثر في الفضاء المهني على بيانات الأدبيات العلمية المتعلقة بالعلاج النباتي في الأمراض الروماتيزمية.">Vos patients utilisent des plantes médicinales sans toujours vous le dire. Retrouvez dans l'espace pro les données de la littérature scientifique disponibles sur la phytothérapie dans les RIC.</div>
-        <a href="pro.html" class="forwho-link" data-fr="Accéder à l'espace pro →" data-ar="الدخول إلى الفضاء المهني ←">Accéder à l'espace pro →</a>
-      </div>
-    </div>
+<section class="section tint"><div class="wrap">
+  <h2 data-l="fr" class="title">Ce site s'adresse à vous</h2><h2 data-l="ar" class="title">هذا الموقع موجّه إليكم</h2>
+  <div class="title-bar"></div>
+  <div class="duo">
+    <a class="duo-card g" href="grand-public.html"><div class="ico">🧑‍🤝‍🧑</div>
+      <h3 data-l="fr">Vous êtes patient ou proche</h3><h3 data-l="ar">أنت مريض أو من أقاربه</h3>
+      <p data-l="fr">Des fiches courtes et claires sur chaque plante : à quoi elle peut servir, comment l'utiliser, et quand en parler à votre médecin. Avec une vidéo pour chaque plante.</p><p data-l="ar">بطاقات قصيرة وواضحة عن كل نبتة: فيمَ قد تفيد، وكيف تُستعمل، ومتى يجب استشارة الطبيب. مع فيديو لكل نبتة.</p>
+      <span data-l="fr" class="go">Découvrir les plantes</span><span data-l="ar" class="go">اكتشف النباتات</span></a>
+    <a class="duo-card r" href="pro.html"><div class="ico">🩺</div>
+      <h3 data-l="fr">Vous êtes professionnel de santé</h3><h3 data-l="ar">أنت مهني صحة</h3>
+      <p data-l="fr">Des monographies synthétiques avec niveau de preuve et références, et un outil pour vérifier les interactions entre plantes et médicaments.</p><p data-l="ar">دراسات مركّزة لكل نبتة مع مستوى الدليل والمراجع، وأداة للتحقق من التداخلات بين النباتات والأدوية.</p>
+      <span data-l="fr" class="go">Accéder à l'espace pro</span><span data-l="ar" class="go">الدخول إلى الفضاء المهني</span></a>
   </div>
-</div>
+</div></section>
 
-<!-- COMMENT UTILISER -->
-<div class="section">
-  <div class="section-title" data-fr="Comment utiliser NabatyRIC" data-ar="كيف تستخدم نباتي RIC">Comment utiliser NabatyRIC</div>
-  <div class="divider"></div>
+<section class="section"><div class="wrap">
+  <h2 data-l="fr" class="title">Comment utiliser Nabaty Care</h2><h2 data-l="ar" class="title">كيف تستعمل Nabaty Care</h2>
+  <div class="title-bar"></div>
   <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-title" data-fr="Cherchez votre plante" data-ar="ابحث عن نبتتك">Cherchez votre plante</div>
-      <div class="step-text" data-fr="Tapez le nom en français, en arabe ou en latin dans la barre de recherche." data-ar="اكتب الاسم بالعربية أو الفرنسية أو اللاتينية في شريط البحث.">Tapez le nom en français, en arabe ou en latin dans la barre de recherche.</div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-title" data-fr="Regardez la vidéo" data-ar="شاهد الفيديو">Regardez la vidéo</div>
-      <div class="step-text" data-fr="Chaque fiche contient une courte vidéo explicative, claire et accessible." data-ar="كل بطاقة تحتوي على فيديو قصير توضيحي، واضح وسهل الفهم.">Chaque fiche contient une courte vidéo explicative, claire et accessible.</div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-title" data-fr="Lisez les informations" data-ar="اقرأ المعلومات">Lisez les informations</div>
-      <div class="step-text" data-fr="Propriétés, précautions, interactions — tout est résumé simplement avec des illustrations." data-ar="الخصائص، الاحتياطات، التفاعلات — كل شيء ملخص ببساطة مع رسوم توضيحية.">Propriétés, précautions, interactions — tout est résumé simplement avec des illustrations.</div>
-    </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <div class="step-title" data-fr="Consultez votre médecin" data-ar="استشر طبيبك">Consultez votre médecin</div>
-      <div class="step-text" data-fr="Partagez la fiche avec votre rhumatologue avant toute décision thérapeutique." data-ar="شارك البطاقة مع طبيبك قبل أي قرار علاجي.">Partagez la fiche avec votre rhumatologue avant toute décision thérapeutique.</div>
-    </div>
+    <div class="step"><div class="n">1</div><h3 data-l="fr">Choisissez votre plante</h3><h3 data-l="ar">اختر نبتتك</h3><p data-l="fr">Dans l'espace grand public, cherchez la plante que vous utilisez.</p><p data-l="ar">في فضاء العموم، ابحث عن النبتة التي تستعملها.</p></div>
+    <div class="step"><div class="n">2</div><h3 data-l="fr">Regardez la vidéo</h3><h3 data-l="ar">شاهد الفيديو</h3><p data-l="fr">Une courte vidéo résume l'essentiel.</p><p data-l="ar">فيديو قصير يلخّص الأهم.</p></div>
+    <div class="step"><div class="n">3</div><h3 data-l="fr">Lisez la fiche</h3><h3 data-l="ar">اقرأ البطاقة</h3><p data-l="fr">Bienfaits possibles, précautions, médicaments à surveiller.</p><p data-l="ar">الفوائد المحتملة، الاحتياطات، والأدوية التي يجب الانتباه إليها.</p></div>
+    <div class="step"><div class="n">4</div><h3 data-l="fr">Parlez-en à votre médecin</h3><h3 data-l="ar">تحدّث مع طبيبك</h3><p data-l="fr">Montrez-lui la fiche avant de commencer ou de continuer une plante.</p><p data-l="ar">أطلعه على البطاقة قبل أن تبدأ نبتة أو تواصل استعمالها.</p></div>
   </div>
+</div></section>
+
+<div class="wrap" style="padding-bottom:clamp(56px,8vw,96px)">
+  <div class="notice"><strong data-l="fr">Information importante</strong><strong data-l="ar">معلومة مهمة</strong><p data-l="fr">Les informations de ce site sont éducatives et ne remplacent pas l'avis de votre médecin. Ne modifiez jamais votre traitement sans lui en parler.</p><p data-l="ar">المعلومات الواردة في هذا الموقع تثقيفية ولا تعوّض رأي طبيبك. لا تغيّر علاجك أبداً دون استشارته.</p></div>
 </div>
-
-<!-- DISCLAIMER -->
-<div class="disclaimer">
-  <div class="disclaimer-inner">
-    <div class="disclaimer-badge">⚕️ <span data-fr="Information importante" data-ar="معلومة مهمة">Information importante</span></div>
-    <p data-fr="Les informations de ce site sont à titre éducatif et ne remplacent en aucun cas l'avis de votre médecin ou rhumatologue. Consultez toujours un professionnel de santé avant d'utiliser une plante médicinale, surtout si vous êtes sous traitement." data-ar="المعلومات الواردة في هذا الموقع للأغراض التثقيفية فقط ولا تغني بأي حال عن استشارة طبيبك أو روماتولوجك. استشر دائماً متخصصاً في الصحة قبل استخدام أي نبتة طبية، خاصة إذا كنت تتناول أدوية.">Les informations de ce site sont à titre éducatif et ne remplacent en aucun cas l'avis de votre médecin ou rhumatologue. Consultez toujours un professionnel de santé avant d'utiliser une plante médicinale, surtout si vous êtes sous traitement.</p>
+<div class="partners"><div class="wrap">
+  <p data-l="fr">Une initiative de la Société Marocaine de Rhumatologie et de sa Section de Médecine Complémentaire</p><p data-l="ar">مبادرة من الجمعية المغربية لطب الروماتيزم وقسم الطب التكميلي التابع لها</p>
+  <div class="logos">
+    <img class="smr" src="logo-smr.png" alt="Société Marocaine de Rhumatologie (SMR)">
+    <img class="sec" src="logo-section.png" alt="Section de Médecine Complémentaire">
   </div>
-</div>
-
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="logo-text">Nabaty<span>RIC</span></div>
-      <p data-fr="Phytothérapie &amp; Rhumatologie · Maroc" data-ar="الطب النباتي والروماتيزم · المغرب">Phytothérapie &amp; Rhumatologie · Maroc</p>
-    </div>
-    <div class="footer-links">
-      <a href="index.html" data-fr="Accueil" data-ar="الرئيسية">Accueil</a>
-      <a href="plantes.html" data-fr="Plantes" data-ar="النباتات">Plantes</a>
-      <a href="pro.html" data-fr="Espace Pro" data-ar="الفضاء المهني">Espace Pro</a>
-      <a href="apropos.html" data-fr="À propos" data-ar="حول">À propos</a>
-      <a href="contact.html" data-fr="Contact" data-ar="تواصل">Contact</a>
-    </div>
+</div></div>
+<div class="band"></div>
+<footer class="foot"><div class="wrap"><div class="foot-inner">
+  <div class="foot-top">
+    <div><div class="wordmark">Nabaty <span>Care</span></div>
+    <p data-l="fr" class="foot-tag">Plantes médicinales et rhumatologie, Maroc</p><p data-l="ar" class="foot-tag">النباتات الطبية وطب الروماتيزم، المغرب</p></div>
+    <div class="foot-links"><a href="index.html"><span data-l="fr">Accueil</span><span data-l="ar">الرئيسية</span></a> <a href="grand-public.html"><span data-l="fr">Espace grand public</span><span data-l="ar">فضاء العموم</span></a> <a href="pro.html"><span data-l="fr">Espace pro</span><span data-l="ar">الفضاء المهني</span></a> <a href="apropos.html"><span data-l="fr">À propos</span><span data-l="ar">من نحن</span></a> <a href="contact.html"><span data-l="fr">Contact</span><span data-l="ar">اتصل بنا</span></a></div>
   </div>
-  <div class="copy" data-fr="Les informations de ce site sont à titre éducatif uniquement et ne remplacent pas l'avis de votre médecin." data-ar="المعلومات الواردة في هذا الموقع للأغراض التثقيفية فقط ولا تغني عن استشارة الطبيب.">Les informations de ce site sont à titre éducatif uniquement et ne remplacent pas l'avis de votre médecin.</div>
-</footer>
-
-<script>
-// ===== LANGUAGE SYSTEM =====
-let currentLang = localStorage.getItem('nabatyric-lang') || 'fr';
-
-function setLang(lang) {
-  currentLang = lang;
-  localStorage.setItem('nabatyric-lang', lang);
-  const root = document.getElementById('html-root');
-  root.lang = lang;
-  root.dir = lang === 'ar' ? 'rtl' : 'ltr';
-  document.querySelectorAll('.lang-btn').forEach(b => {
-    b.classList.toggle('active', b.textContent.toLowerCase() === lang);
-  });
-  document.querySelectorAll('[data-fr]').forEach(el => {
-    const content = lang === 'ar' ? el.getAttribute('data-ar') : el.getAttribute('data-fr');
-    if (content) el.innerHTML = content;
-  });
-}
-
-// Apply saved language on load
-setLang(currentLang);
-</script>
+  <div class="foot-bottom">
+    <span data-l="fr">Informations à visée éducative, qui ne remplacent pas l'avis de votre médecin.</span><span data-l="ar">معلومات ذات طابع تثقيفي، لا تعوّض رأي طبيبك.</span>
+    <span>© 2026 Nabaty Care · SMR · <a href="mailto:nabatycare@gmail.com">nabatycare@gmail.com</a></span>
+  </div>
+</div></div></footer>
 <script src="nabatyric.js"></script>
 </body>
 </html>

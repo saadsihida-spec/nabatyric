@@ -1,159 +1,83 @@
 <!DOCTYPE html>
-<html lang="fr" dir="ltr" id="html-root">
+<html lang="fr" dir="ltr" class="l-fr">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — NabatyRIC</title>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@500;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--green-deep:#1a4a2e;--green-mid:#2d7a4a;--green-light:#4caf70;--green-pale:#e8f5ec;--gold:#b8860b;--cream:#faf8f2;--text-dark:#1c1c1c;--text-mid:#4a4a4a;--text-light:#777;--white:#fff;--border:#d4e8d8;--radius:12px}
-body{font-family:'Lato',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden}
-nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(26,74,46,0.07)}
-.nav-inner{max-width:1100px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
-.logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--green-mid),var(--green-light));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px}
-.logo-text{font-family:'Playfair Display',serif;font-size:20px;color:var(--green-deep);font-weight:700}.logo-text span{color:var(--gold)}
-.nav-links{display:flex;align-items:center;gap:2px}
-.nav-links a{font-size:13px;padding:7px 11px;border-radius:8px;text-decoration:none;color:var(--text-mid);transition:all .2s}
-.nav-links a:hover,.nav-links a.active{background:var(--green-pale);color:var(--green-deep);font-weight:700}
-.lang-switcher{display:flex;align-items:center;background:#f0f0f0;border-radius:20px;padding:3px;gap:2px;flex-shrink:0}
-.lang-btn{padding:5px 14px;border-radius:16px;border:none;font-size:13px;font-weight:700;cursor:pointer;font-family:'Lato',sans-serif;background:transparent;color:#888;transition:all .2s}
-.lang-btn.active{background:var(--green-deep);color:var(--white)}
-footer{background:var(--green-deep);color:rgba(255,255,255,0.65);text-align:center;padding:32px 24px;font-size:13px}
-footer strong{color:var(--white)}.copy{margin-top:10px;font-size:11px;color:rgba(255,255,255,0.3)}
-.page-header{background:linear-gradient(135deg,var(--green-deep),#2d5a3e);padding:52px 24px;text-align:center;color:var(--white)}
-.page-header h1{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;margin-bottom:10px}
-.page-header p{font-size:16px;color:rgba(255,255,255,0.75);max-width:520px;margin:0 auto}
-.section{max-width:900px;margin:0 auto;padding:56px 24px}
-.contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:32px}
-.contact-form{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:32px}
-.form-title{font-family:'Playfair Display',serif;font-size:22px;color:var(--green-deep);margin-bottom:20px}
-.form-group{margin-bottom:16px}
-.form-group label{display:block;font-size:13px;font-weight:700;color:var(--text-mid);margin-bottom:6px}
-.form-group input,.form-group textarea,.form-group select{width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:'Lato',sans-serif;background:var(--cream);color:var(--text-dark);outline:none;transition:border .2s}
-.form-group input:focus,.form-group textarea:focus{border-color:var(--green-mid)}
-.form-group textarea{height:110px;resize:vertical}
-.btn-primary{background:var(--gold);color:var(--white);border:none;padding:13px 24px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Lato',sans-serif;transition:all .2s;width:100%}
-.btn-primary:hover{background:#9a7009}
-.info-cards{display:flex;flex-direction:column;gap:14px}
-.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:18px;display:flex;gap:14px;align-items:flex-start}
-.info-icon{width:42px;height:42px;border-radius:10px;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.info-title{font-weight:700;font-size:14px;color:var(--green-deep);margin-bottom:3px}
-.info-val{font-size:13px;color:var(--text-mid)}
-[dir="rtl"] body,[dir="rtl"] .form-group label,[dir="rtl"] .info-val{font-family:'Amiri',serif;font-size:15px}
-[dir="rtl"] .form-title,[dir="rtl"] .page-header h1{font-family:'Amiri',serif}
-[dir="rtl"] .form-group input,[dir="rtl"] .form-group textarea,[dir="rtl"] .form-group select{font-family:'Amiri',serif;text-align:right}
-@media(max-width:768px){.contact-grid{grid-template-columns:1fr}.page-header h1{font-size:28px}.nav-links{display:none}}
-</style>
-<link rel="stylesheet" href="nabatyric.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact · Nabaty Care</title>
+<meta name="description" content="Contactez l'équipe Nabaty Care : nabatycare@gmail.com">
 <meta name="theme-color" content="#ffffff">
+<script>try{if(localStorage.getItem('nabaty-lang')==='ar'){var h=document.documentElement;h.className='l-ar';h.dir='rtl';h.lang='ar';}}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@500;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="nabatyric.css">
 </head>
 <body>
-<nav><div class="nav-inner">
-  <a class="logo" href="index.html"><div class="logo-icon">🌿</div><div class="logo-text">Nabaty<span>RIC</span></div></a>
+<nav class="top"><div class="nav-inner">
+  <a class="wordmark" href="index.html">Nabaty <span>Care</span></a>
   <div class="nav-links">
-    <a href="index.html" data-fr="Accueil" data-ar="الرئيسية">Accueil</a>
-    <a href="plantes.html" data-fr="Plantes" data-ar="النباتات">Plantes</a>
-    <a href="pro.html" data-fr="Espace Pro" data-ar="الفضاء المهني">Espace Pro</a>
-    <a href="apropos.html" data-fr="À propos" data-ar="حول">À propos</a>
-    <a href="contact.html" class="active" data-fr="Contact" data-ar="تواصل">Contact</a>
+    <a href="index.html"><span data-l="fr">Accueil</span><span data-l="ar">الرئيسية</span></a>
+    <a href="grand-public.html"><span data-l="fr">Espace grand public</span><span data-l="ar">فضاء العموم</span></a>
+    <a href="pro.html"><span data-l="fr">Espace pro</span><span data-l="ar">الفضاء المهني</span></a>
+    <a href="apropos.html"><span data-l="fr">À propos</span><span data-l="ar">من نحن</span></a>
+    <a href="contact.html" class="active"><span data-l="fr">Contact</span><span data-l="ar">اتصل بنا</span></a>
   </div>
   <div class="nav-right">
-      <div class="lang-switcher">
-    <button class="lang-btn active" onclick="setLang('fr')">FR</button>
-    <button class="lang-btn" onclick="setLang('ar')">AR</button>
+    <div class="lang"><button type="button" data-lang="fr" class="on">FR</button><button type="button" data-lang="ar">AR</button></div>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
-      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
 </div></nav>
+<header class="page-head"><div class="wrap">
+  <h1 data-l="fr">Contact</h1><h1 data-l="ar">اتصل بنا</h1>
+  <p data-l="fr">Une question sur une plante ? Vous souhaitez contribuer ? Écrivez-nous.</p><p data-l="ar">سؤال حول نبتة؟ تريد المساهمة؟ راسلنا.</p>
+</div></header>
+<div class="band"></div>
 
-<div class="page-header">
-  <h1 data-fr="Contact" data-ar="تواصل معنا">Contact</h1>
-  <p data-fr="Une question sur une plante ? Vous souhaitez collaborer ? Écrivez-nous." data-ar="سؤال حول نبتة ؟ تريد التعاون ؟ راسلنا.">Une question sur une plante ? Vous souhaitez collaborer ? Écrivez-nous.</p>
-</div>
-
-<div class="section">
-  <div class="contact-grid">
-    <div class="contact-form">
-      <div class="form-title" data-fr="Envoyer un message" data-ar="إرسال رسالة">Envoyer un message</div>
-      <div class="form-group">
-        <label data-fr="Nom complet" data-ar="الاسم الكامل">Nom complet</label>
-        <input type="text" data-placeholder-fr="Votre nom..." data-placeholder-ar="اسمك..." placeholder="Votre nom...">
-      </div>
-      <div class="form-group">
-        <label data-fr="Email" data-ar="البريد الإلكتروني">Email</label>
-        <input type="email" placeholder="votre@email.com">
-      </div>
-      <div class="form-group">
-        <label data-fr="Vous êtes" data-ar="أنت">Vous êtes</label>
-        <select id="profile-select">
-          <option data-fr="Patient / proche" data-ar="مريض / قريب">Patient / proche</option>
-          <option data-fr="Médecin / rhumatologue" data-ar="طبيب / روماتولوجي">Médecin / rhumatologue</option>
-          <option data-fr="Chercheur" data-ar="باحث">Chercheur</option>
-          <option data-fr="Autre professionnel de santé" data-ar="متخصص صحي آخر">Autre professionnel de santé</option>
-          <option data-fr="Autre" data-ar="أخرى">Autre</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label data-fr="Message" data-ar="الرسالة">Message</label>
-        <textarea data-placeholder-fr="Votre message..." data-placeholder-ar="رسالتك..." placeholder="Votre message..."></textarea>
-      </div>
-      <button class="btn-primary" data-fr="Envoyer le message" data-ar="إرسال الرسالة">Envoyer le message</button>
-      <p style="font-size:12px;color:var(--text-light);margin-top:12px;text-align:center" data-fr="Réponse sous 48-72h" data-ar="رد خلال 48-72 ساعة">Réponse sous 48-72h</p>
-    </div>
-
-    <div class="info-cards">
-      <div class="info-card">
-        <div class="info-icon">🏥</div>
-        <div>
-          <div class="info-title" data-fr="Affiliation" data-ar="الانتماء المؤسسي">Affiliation</div>
-          <div class="info-val" data-fr="Service de Rhumatologie B<br>CHU Ibn Sina – Hôpital El Ayachi<br>Rabat, Maroc" data-ar="مصلحة الروماتولوجيا B<br>المستشفى الجامعي ابن سينا – مستشفى العيّاشي<br>الرباط، المغرب">Service de Rhumatologie B<br>CHU Ibn Sina – Hôpital El Ayachi<br>Rabat, Maroc</div>
-      </div></div>
-      <div class="info-card">
-        <div class="info-icon">📧</div>
-        <div>
-          <div class="info-title" data-fr="Email" data-ar="البريد الإلكتروني">Email</div>
-          <div class="info-val">contact@nabatyric.ma</div>
-        </div>
-      </div>
-      <div class="info-card">
-        <div class="info-icon">🌐</div>
-        <div>
-          <div class="info-title" data-fr="Site web" data-ar="الموقع الإلكتروني">Site web</div>
-          <div class="info-val">nabatyric.ma · nabatyric.com</div>
-        </div>
-      </div>
-    </div>
+<section class="section"><div class="wrap"><div class="contact-grid">
+  <form class="form" id="contact-form">
+    <h2 data-l="fr">Envoyer un message</h2><h2 data-l="ar">إرسال رسالة</h2>
+    <label for="c-nom"><span data-l="fr">Nom complet</span><span data-l="ar">الاسم الكامل</span></label>
+    <input id="c-nom" type="text" required placeholder="Votre nom" data-ph-fr="Votre nom" data-ph-ar="اسمك">
+    <label for="c-mail"><span data-l="fr">Email</span><span data-l="ar">البريد الإلكتروني</span></label>
+    <input id="c-mail" type="email" placeholder="votre@email.com" data-ph-fr="votre@email.com" data-ph-ar="votre@email.com">
+    <label for="c-profil"><span data-l="fr">Vous êtes</span><span data-l="ar">أنت</span></label>
+    <select id="c-profil">
+      <option data-fr="Patient ou proche" data-ar="مريض أو من أقاربه">Patient ou proche</option>
+      <option data-fr="Médecin" data-ar="طبيب">Médecin</option>
+      <option data-fr="Pharmacien" data-ar="صيدلي">Pharmacien</option>
+      <option data-fr="Autre professionnel de santé" data-ar="مهني صحة آخر">Autre professionnel de santé</option>
+      <option data-fr="Chercheur" data-ar="باحث">Chercheur</option>
+      <option data-fr="Autre" data-ar="آخر">Autre</option>
+    </select>
+    <label for="c-msg"><span data-l="fr">Message</span><span data-l="ar">الرسالة</span></label>
+    <textarea id="c-msg" required placeholder="Votre message" data-ph-fr="Votre message" data-ph-ar="رسالتك"></textarea>
+    <button class="btn btn-red" type="submit"><span data-l="fr">Envoyer le message</span><span data-l="ar">إرسال الرسالة</span></button>
+    <p data-l="fr" class="small">Le bouton ouvre votre messagerie avec le message prêt à envoyer.</p><p data-l="ar" class="small">يفتح الزر بريدك الإلكتروني والرسالة جاهزة للإرسال.</p>
+  </form>
+  <div>
+    <div class="info"><div class="ico">📧</div><div><h3 data-l="fr">Email</h3><h3 data-l="ar">البريد الإلكتروني</h3><a href="mailto:nabatycare@gmail.com">nabatycare@gmail.com</a></div></div>
+    <div class="info"><div class="ico">🏛️</div><div><h3 data-l="fr">Une initiative de</h3><h3 data-l="ar">مبادرة من</h3><p data-l="fr">Société Marocaine de Rhumatologie<br>Section de Médecine Complémentaire</p><p data-l="ar">الجمعية المغربية لطب الروماتيزم<br>قسم الطب التكميلي</p></div></div>
   </div>
-</div>
-
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="logo-text">Nabaty<span>RIC</span></div>
-      <p data-fr="Phytothérapie &amp; Rhumatologie · Maroc" data-ar="الطب النباتي والروماتيزم · المغرب">Phytothérapie &amp; Rhumatologie · Maroc</p>
-    </div>
-    <div class="footer-links">
-      <a href="index.html" data-fr="Accueil" data-ar="الرئيسية">Accueil</a>
-      <a href="plantes.html" data-fr="Plantes" data-ar="النباتات">Plantes</a>
-      <a href="pro.html" data-fr="Espace Pro" data-ar="الفضاء المهني">Espace Pro</a>
-      <a href="apropos.html" data-fr="À propos" data-ar="حول">À propos</a>
-      <a href="contact.html" data-fr="Contact" data-ar="تواصل">Contact</a>
-    </div>
+</div></div></section>
+<div class="partners"><div class="wrap">
+  <p data-l="fr">Une initiative de la Société Marocaine de Rhumatologie et de sa Section de Médecine Complémentaire</p><p data-l="ar">مبادرة من الجمعية المغربية لطب الروماتيزم وقسم الطب التكميلي التابع لها</p>
+  <div class="logos">
+    <img class="smr" src="logo-smr.png" alt="Société Marocaine de Rhumatologie (SMR)">
+    <img class="sec" src="logo-section.png" alt="Section de Médecine Complémentaire">
   </div>
-  <div class="copy" data-fr="Les informations de ce site sont à titre éducatif uniquement et ne remplacent pas l'avis de votre médecin." data-ar="المعلومات الواردة في هذا الموقع للأغراض التثقيفية فقط ولا تغني عن استشارة الطبيب.">Les informations de ce site sont à titre éducatif uniquement et ne remplacent pas l'avis de votre médecin.</div>
-</footer>
-<script>
-let currentLang=localStorage.getItem('nabatyric-lang')||'fr';
-function setLang(lang){
-  currentLang=lang;localStorage.setItem('nabatyric-lang',lang);
-  const root=document.getElementById('html-root');root.lang=lang;root.dir=lang==='ar'?'rtl':'ltr';
-  document.querySelectorAll('.lang-btn').forEach(b=>{b.classList.toggle('active',b.textContent.toLowerCase()===lang)});
-  document.querySelectorAll('[data-fr]').forEach(el=>{const c=lang==='ar'?el.getAttribute('data-ar'):el.getAttribute('data-fr');if(c)el.innerHTML=c});
-  document.querySelectorAll('[data-placeholder-fr]').forEach(el=>{el.placeholder=lang==='ar'?el.getAttribute('data-placeholder-ar'):el.getAttribute('data-placeholder-fr')});
-  document.querySelectorAll('#profile-select option').forEach(opt=>{const c=lang==='ar'?opt.getAttribute('data-ar'):opt.getAttribute('data-fr');if(c)opt.textContent=c});
-}
-setLang(currentLang);
-</script>
+</div></div>
+<div class="band"></div>
+<footer class="foot"><div class="wrap"><div class="foot-inner">
+  <div class="foot-top">
+    <div><div class="wordmark">Nabaty <span>Care</span></div>
+    <p data-l="fr" class="foot-tag">Plantes médicinales et rhumatologie, Maroc</p><p data-l="ar" class="foot-tag">النباتات الطبية وطب الروماتيزم، المغرب</p></div>
+    <div class="foot-links"><a href="index.html"><span data-l="fr">Accueil</span><span data-l="ar">الرئيسية</span></a> <a href="grand-public.html"><span data-l="fr">Espace grand public</span><span data-l="ar">فضاء العموم</span></a> <a href="pro.html"><span data-l="fr">Espace pro</span><span data-l="ar">الفضاء المهني</span></a> <a href="apropos.html"><span data-l="fr">À propos</span><span data-l="ar">من نحن</span></a> <a href="contact.html"><span data-l="fr">Contact</span><span data-l="ar">اتصل بنا</span></a></div>
+  </div>
+  <div class="foot-bottom">
+    <span data-l="fr">Informations à visée éducative, qui ne remplacent pas l'avis de votre médecin.</span><span data-l="ar">معلومات ذات طابع تثقيفي، لا تعوّض رأي طبيبك.</span>
+    <span>© 2026 Nabaty Care · SMR · <a href="mailto:nabatycare@gmail.com">nabatycare@gmail.com</a></span>
+  </div>
+</div></div></footer>
 <script src="nabatyric.js"></script>
-</body></html>
+</body>
+</html>
