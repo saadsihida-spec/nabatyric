@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nigelle — NabatyRIC</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--green-deep:#1a4a2e;--green-mid:#2d7a4a;--green-light:#4caf70;--green-pale:#e8f5ec;--gold:#b8860b;--gold-light:#f5e6b0;--cream:#faf8f2;--text-dark:#1c1c1c;--text-mid:#4a4a4a;--text-light:#777;--white:#fff;--border:#d4e8d8;--radius:12px;--shadow:0 4px 24px rgba(26,74,46,0.10)}
@@ -134,6 +134,8 @@ footer .copy{margin-top:10px;font-size:11px;color:rgba(255,255,255,0.3)}
   .nav-links{display:none}
 }
 </style>
+<link rel="stylesheet" href="assets/nabatyric.css">
+<meta name="theme-color" content="#1a4a2e">
 </head>
 <body>
 
@@ -150,9 +152,12 @@ footer .copy{margin-top:10px;font-size:11px;color:rgba(255,255,255,0.3)}
       <a href="apropos.html" data-fr="À propos" data-ar="حول">À propos</a>
       <a href="contact.html" data-fr="Contact" data-ar="تواصل">Contact</a>
     </div>
-    <div class="lang-switcher">
+    <div class="nav-right">
+      <div class="lang-switcher">
       <button class="lang-btn active" onclick="setLang('fr')">FR</button>
       <button class="lang-btn" onclick="setLang('ar')">AR</button>
+    </div>
+      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
@@ -260,7 +265,7 @@ footer .copy{margin-top:10px;font-size:11px;color:rgba(255,255,255,0.3)}
     <!-- NAV -->
     <div class="plant-nav">
       <a href="plantes.html" data-fr="← Toutes les plantes" data-ar="كل النباتات →">← Toutes les plantes</a>
-      <a href="curcuma.html" data-fr="Curcuma →" data-ar="← الكركم">Curcuma →</a>
+      <a href="curcuma.html" class="disabled" aria-disabled="true" data-fr="Curcuma · bientôt →" data-ar="← الكركم · قريباً">Curcuma · bientôt →</a>
     </div>
   </div>
 
@@ -326,9 +331,21 @@ footer .copy{margin-top:10px;font-size:11px;color:rgba(255,255,255,0.3)}
   </div>
 </div>
 
-<footer>
-  <strong>NabatyRIC</strong> · <span data-fr="Phytothérapie & Rhumatologie · Maroc" data-ar="الطب النباتي والروماتيزم · المغرب">Phytothérapie & Rhumatologie · Maroc</span>
-  <div class="copy" data-fr="Les informations de ce site sont à titre éducatif uniquement" data-ar="المعلومات الواردة في هذا الموقع للأغراض التثقيفية فقط">Les informations de ce site sont à titre éducatif uniquement</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo-text">Nabaty<span>RIC</span></div>
+      <p data-fr="Phytothérapie &amp; Rhumatologie · Maroc" data-ar="الطب النباتي والروماتيزم · المغرب">Phytothérapie &amp; Rhumatologie · Maroc</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html" data-fr="Accueil" data-ar="الرئيسية">Accueil</a>
+      <a href="plantes.html" data-fr="Plantes" data-ar="النباتات">Plantes</a>
+      <a href="pro.html" data-fr="Espace Pro" data-ar="الفضاء المهني">Espace Pro</a>
+      <a href="apropos.html" data-fr="À propos" data-ar="حول">À propos</a>
+      <a href="contact.html" data-fr="Contact" data-ar="تواصل">Contact</a>
+    </div>
+  </div>
+  <div class="copy" data-fr="Les informations de ce site sont à titre éducatif uniquement et ne remplacent pas l'avis de votre médecin." data-ar="المعلومات الواردة في هذا الموقع للأغراض التثقيفية فقط ولا تغني عن استشارة الطبيب.">Les informations de ce site sont à titre éducatif uniquement et ne remplacent pas l'avis de votre médecin.</div>
 </footer>
 
 <script>
@@ -349,5 +366,6 @@ function setLang(lang) {
 }
 setLang(currentLang);
 </script>
+<script src="assets/nabatyric.js"></script>
 </body>
 </html>

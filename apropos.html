@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>À propos — NabatyRIC</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--green-deep:#1a4a2e;--green-mid:#2d7a4a;--green-light:#4caf70;--green-pale:#e8f5ec;--gold:#b8860b;--gold-light:#f5e6b0;--cream:#faf8f2;--text-dark:#1c1c1c;--text-mid:#4a4a4a;--text-light:#777;--white:#fff;--border:#d4e8d8;--radius:12px}
@@ -37,6 +37,8 @@ footer strong{color:var(--white)}.copy{margin-top:10px;font-size:11px;color:rgba
 [dir="rtl"] .section-title,[dir="rtl"] .val-title,[dir="rtl"] .page-header h1{font-family:'Amiri',serif}
 @media(max-width:768px){.page-header h1{font-size:28px}.nav-links{display:none}.values-grid{grid-template-columns:1fr}}
 </style>
+<link rel="stylesheet" href="assets/nabatyric.css">
+<meta name="theme-color" content="#1a4a2e">
 </head>
 <body>
 <nav><div class="nav-inner">
@@ -48,10 +50,13 @@ footer strong{color:var(--white)}.copy{margin-top:10px;font-size:11px;color:rgba
     <a href="apropos.html" class="active" data-fr="À propos" data-ar="حول">À propos</a>
     <a href="contact.html" data-fr="Contact" data-ar="تواصل">Contact</a>
   </div>
-  <div class="lang-switcher">
+  <div class="nav-right">
+      <div class="lang-switcher">
     <button class="lang-btn active" onclick="setLang('fr')">FR</button>
     <button class="lang-btn" onclick="setLang('ar')">AR</button>
   </div>
+      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
 </div></nav>
 
 <div class="page-header">
@@ -82,13 +87,26 @@ footer strong{color:var(--white)}.copy{margin-top:10px;font-size:11px;color:rgba
   </div>
 </div>
 
-<footer>
-  <strong>NabatyRIC</strong> · <span data-fr="Phytothérapie & Rhumatologie · Maroc" data-ar="الطب النباتي والروماتيزم · المغرب">Phytothérapie & Rhumatologie · Maroc</span>
-  <div class="copy" data-fr="Les informations de ce site sont à titre éducatif uniquement" data-ar="المعلومات الواردة للأغراض التثقيفية فقط">Les informations de ce site sont à titre éducatif uniquement</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo-text">Nabaty<span>RIC</span></div>
+      <p data-fr="Phytothérapie &amp; Rhumatologie · Maroc" data-ar="الطب النباتي والروماتيزم · المغرب">Phytothérapie &amp; Rhumatologie · Maroc</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html" data-fr="Accueil" data-ar="الرئيسية">Accueil</a>
+      <a href="plantes.html" data-fr="Plantes" data-ar="النباتات">Plantes</a>
+      <a href="pro.html" data-fr="Espace Pro" data-ar="الفضاء المهني">Espace Pro</a>
+      <a href="apropos.html" data-fr="À propos" data-ar="حول">À propos</a>
+      <a href="contact.html" data-fr="Contact" data-ar="تواصل">Contact</a>
+    </div>
+  </div>
+  <div class="copy" data-fr="Les informations de ce site sont à titre éducatif uniquement et ne remplacent pas l'avis de votre médecin." data-ar="المعلومات الواردة في هذا الموقع للأغراض التثقيفية فقط ولا تغني عن استشارة الطبيب.">Les informations de ce site sont à titre éducatif uniquement et ne remplacent pas l'avis de votre médecin.</div>
 </footer>
 <script>
 let currentLang=localStorage.getItem('nabatyric-lang')||'fr';
 function setLang(lang){currentLang=lang;localStorage.setItem('nabatyric-lang',lang);const root=document.getElementById('html-root');root.lang=lang;root.dir=lang==='ar'?'rtl':'ltr';document.querySelectorAll('.lang-btn').forEach(b=>{b.classList.toggle('active',b.textContent.toLowerCase()===lang)});document.querySelectorAll('[data-fr]').forEach(el=>{const c=lang==='ar'?el.getAttribute('data-ar'):el.getAttribute('data-fr');if(c)el.innerHTML=c})}
 setLang(currentLang);
 </script>
+<script src="assets/nabatyric.js"></script>
 </body></html>
